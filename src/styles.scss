@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import "app/colors.scss";
+@import "app/mixins.scss";
+
+$font-family-nunito: Nunito;
+$font-family-figtree: Figtree;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  background-color: $bg-color;
+  font-family: $font-family-nunito;
+  color: $black;
+  position: relative;
+}
