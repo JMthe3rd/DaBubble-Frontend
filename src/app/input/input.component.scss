@@ -8,6 +8,8 @@
   border-radius: 17.9rem;
   background: $bg-color;
   display: flex;
+  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
 
   img {
     width: 2.4rem;
@@ -33,7 +35,6 @@
 }
 
 .input-error {
-  margin-top: 0.6rem;
   color: $rosa-error;
   @include fonts-styles(1.4rem, 400);
   line-height: normal;
