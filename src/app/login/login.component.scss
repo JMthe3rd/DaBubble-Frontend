@@ -1,0 +1,40 @@
+@import "./../colors.scss";
+// @import "./../mixins.scss";
+
+.purple {
+    color: $purple-1;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-color {
+    background-color: $bg-color !important;
+}
+
+// .flex-center {
+//     @include flex-center;
+// }
+
+.login-container {
+    flex-direction: column;
+    gap: 8px;
+    width: 310px;
+
+    .radius {
+        border-radius: 10px;
+    }
+}
