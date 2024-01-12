@@ -1,0 +1,20 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+
+.sign-up-header {
+  width: 20.4rem;
+  height: 5.6rem;
+  display: flex;
+  align-items: center;
+
+  .sign-up-header-logo-image {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
+
+  .sign-up-header-logo-name-image {
+    width: 13.5rem;
+    height: 2.8rem;
+    margin-left: 1.3rem;
+  }
+}

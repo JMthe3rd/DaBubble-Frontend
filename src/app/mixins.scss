@@ -3,3 +3,16 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin flex-direction-column() {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@mixin fonts-styles($fs, $fw) {
+  font-size: $fs;
+  font-style: normal;
+  font-weight: $fw;
+  line-height: 120%;
+}
