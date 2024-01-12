@@ -25,3 +25,13 @@ body {
   color: $black;
   position: relative;
 }
+
+img,
+button {
+  cursor: pointer;
+}
+
+input {
+  border: unset;
+  outline: none;
+}

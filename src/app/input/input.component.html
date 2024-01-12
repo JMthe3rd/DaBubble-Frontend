@@ -1,0 +1,21 @@
+<div [ngClass]="{ active: isInputActive }" class="reusable-input" matInput>
+  <img [src]="img" alt="Image" />
+  <input
+    [type]="inputType"
+    (focus)="handleFocus()"
+    (blur)="handleBlur()"
+    (input)="handleInput()"
+    [placeholder]="placeholder"
+    matInput
+    [formControl]="formControl"
+  />
+</div>
+<mat-error
+  class="input-error"
+  *ngIf="
+    formControl.touched &&
+    (formControl.hasError('required') || formControl.hasError('pattern'))
+  "
+>
+  {{ getErrorMessage() }}
+</mat-error>
