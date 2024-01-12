@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { InputComponent } from '../input/input.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { LogoMobileComponent } from '../logo-mobile/logo-mobile.component';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +12,7 @@ import { LogoMobileComponent } from '../logo-mobile/logo-mobile.component';
   imports: [
     MatCardModule,
     CommonModule,
-    LogoMobileComponent,
+    LogoComponent,
     InputComponent,
     FormsModule,
     RouterLink,
@@ -23,14 +23,41 @@ import { LogoMobileComponent } from '../logo-mobile/logo-mobile.component';
 export class SignUpComponent {
   @Output() inputChange = new EventEmitter<any>();
 
+  images = [
+    '../../assets/img/checkbox-empty.svg',
+    '../../assets/img/checkbox-checked.svg',
+  ];
+  position: number = 0;
   fullName: any = '';
   email: any = '';
   password: any = '';
   ifSuccess: boolean = true;
+  active: boolean = false;
+  windowWidth: number = 0;
 
   nameValid: boolean = false;
   emailValid: boolean = false;
   passwordValid: boolean = false;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.windowWidth = window.innerWidth;
+    if (this.windowWidth <= 1100) {
+      this.active = true;
+    } else {
+      this.active = false;
+    }
+  }
+
+  @HostListener('window:load', ['$event'])
+  onLoad(event: Event): void {
+    this.windowWidth = window.innerWidth;
+    if (this.windowWidth <= 1100) {
+      this.active = true;
+    } else {
+      this.active = false;
+    }
+  }
 
   onValidityChanged(field: string, isValid: boolean) {
     switch (field) {
@@ -43,11 +70,22 @@ export class SignUpComponent {
       case 'password':
         this.passwordValid = isValid;
         break;
-      // Add more cases if needed for additional inputs
     }
   }
 
-  isFormValid(): boolean {
-    return this.nameValid && this.emailValid && this.passwordValid;
+  onCheckboxChange() {
+    this.position = this.position === 0 ? 1 : 0;
+  }
+
+  isFormValid(): any {
+    if (this.windowWidth < 1100) {
+      return this.nameValid && this.emailValid && this.passwordValid;
+    }
+    return (
+      this.nameValid &&
+      this.emailValid &&
+      this.passwordValid &&
+      this.position === 1
+    );
   }
 }

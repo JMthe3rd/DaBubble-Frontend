@@ -76,19 +76,19 @@ export class InputComponent {
 
   getErrorMessage(): string {
     if (this.formControl.hasError('required') && this.formControl.touched) {
-      return 'This field is required.';
+      return '*This field is required.';
     }
 
     if (this.formControl.hasError('pattern') && this.formControl.touched) {
       switch (this.inputType) {
         case 'text':
-          return 'Bitte schreiben Sie einen Namen und Nachnamen.';
+          return '*Bitte schreiben Sie einen Namen und Nachnamen.';
         case 'email':
-          return 'Diese E-Mail-Adresse ist leider ungültig.';
+          return '*Diese E-Mail-Adresse ist leider ungültig.';
         case 'password':
-          return 'Bitte geben Sie ein Passwort ein.';
+          return '*Bitte geben Sie ein Passwort ein.';
         default:
-          return 'Invalid input.';
+          return '*Invalid input.';
       }
     }
 

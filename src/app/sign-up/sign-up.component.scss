@@ -1,6 +1,68 @@
 @import "../colors.scss";
 @import "../mixins.scss";
 
+@media only screen and (min-width: 1100px) {
+  .sign-up-container {
+    width: 60.6rem !important;
+    height: 66.9rem !important;
+    flex-direction: row !important;
+
+    app-logo {
+      position: absolute !important;
+      top: 7.5rem;
+      left: 7.5rem;
+      z-index: 2;
+    }
+  }
+
+  .sign-up-content {
+    width: 100% !important;
+    height: 66.9rem !important;
+    justify-content: flex-start !important;
+  }
+
+  .sign-up-content-header {
+    margin-top: 4rem !important;
+    width: 48.6rem !important;
+    height: 13.6rem !important;
+  }
+
+  .sign-up-content-form {
+    width: 50rem !important;
+    height: 40rem !important;
+    margin-top: 4rem !important;
+  }
+
+  .sign-up-content-header-title {
+    font-size: 4.6rem !important;
+  }
+
+  .sign-up-content-header-des {
+    font-size: 4.6rem !important;
+  }
+
+  .sign-up-content-header-description {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+
+    p {
+      font-size: 2rem !important;
+    }
+  }
+
+  .sign-up-content-header-img {
+    left: -2rem !important;
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+
+  .sign-up-content-form-btn {
+    margin-top: 4rem !important;
+    margin-bottom: 0 !important;
+  }
+}
+
 #sign-up-main-container {
   width: 100%;
   height: 100vh;
@@ -46,9 +108,8 @@
 
           .sign-up-content-header-des {
             color: $purple-1;
-            font-size: 3.2rem !important;
             text-align: center;
-            @include fonts-styles(2rem, 400);
+            @include fonts-styles(3.2rem, 700);
           }
         }
 
@@ -80,6 +141,27 @@
           margin-bottom: 3rem;
           align-self: flex-end;
         }
+
+        .checkbox {
+          width: 36.8rem;
+          height: 2.4rem;
+          display: flex;
+          align-items: center;
+
+          p {
+            margin-left: 0.8rem;
+            color: $menu-color;
+            font-family: Open Sans;
+            @include fonts-styles(1.6rem, 400);
+
+            a {
+              color: $purple-2;
+              font-family: Figtree;
+              @include fonts-styles(1.8rem, 400);
+              cursor: pointer;
+            }
+          }
+        }
       }
     }
   }
@@ -87,4 +169,8 @@
 
 .active {
   background-color: $text-gray !important;
+}
+
+.checkbox-active {
+  display: none !important;
 }

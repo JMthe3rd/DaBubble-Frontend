@@ -1,6 +1,6 @@
 <div id="sign-up-main-container">
   <div class="sign-up-container">
-    <app-logo-mobile></app-logo-mobile>
+    <app-logo></app-logo>
 
     <mat-card class="sign-up-content">
       <div class="sign-up-content-header">
@@ -46,6 +46,18 @@
           placeholder="Passwort"
           (validityChanged)="onValidityChanged('password', $event)"
         ></app-input>
+
+        <div [ngClass]="{ 'checkbox-active': active }" class="checkbox">
+          <img
+            (click)="onCheckboxChange()"
+            [src]="images[position]"
+            alt="Checbox empty"
+          />
+          <p>
+            Ich stimme der
+            <a routerLink="/privacy-policy">Datenschutzerklärung</a> zu.
+          </p>
+        </div>
 
         <button
           [ngClass]="{ active: !isFormValid() }"
