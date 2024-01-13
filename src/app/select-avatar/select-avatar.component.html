@@ -1,1 +1,57 @@
-<p>select-avatar works!</p>
+<div id="select-avatar-main-container">
+  <div class="select-avatar-container">
+    <app-logo></app-logo>
+
+    <mat-card class="select-avatar-content">
+      <div class="select-avatar-content-header">
+        <img
+          routerLink="/sign-up"
+          class="select-avatar-content-header-img"
+          src="../../assets/img/arrow_back.svg"
+          alt="Arrow back img"
+        />
+        <h2 class="select-avatar-content-header-title">
+          Wähle deinen <br />
+          Avatar
+        </h2>
+      </div>
+
+      <div class="select-avatar-main-content">
+        <div class="select-avatar-content-profile-img">
+          <img [src]="personImg" alt="Person img" />
+        </div>
+
+        <div class="select-avatar">
+          <div class="select-avatar-user-name">
+            <h2>{{ fullName }}</h2>
+            <p *ngIf="showParagraph">Choose your avatar ...</p>
+            <p *ngIf="!showParagraph">Aus der Liste wählen</p>
+          </div>
+          <div class="avatars">
+            <img
+              *ngFor="let avatar of avatars; let i = index"
+              class="avatar"
+              (click)="imageClicked(i)"
+              [src]="avatar"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="select-avatar-upload-foto">
+        <div>
+          <p *ngIf="showParagraph">Or you can</p>
+          <p *ngIf="!showParagraph">eigenes Bild verwenden</p>
+
+          <input class="upload-hidden" type="file" id="actual-btn" />
+          <label class="upload" for="actual-btn">
+            {{ isGerman ? "Datei hochladen" : "Upload foto" }}</label
+          >
+        </div>
+      </div>
+
+      <button class="select-avatar-btn">Weiter</button>
+    </mat-card>
+  </div>
+</div>
