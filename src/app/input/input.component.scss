@@ -1,0 +1,49 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+
+@media only screen and (min-width: 1100px) {
+  .reusable-input {
+    width: 100% !important;
+  }
+}
+
+.reusable-input {
+  width: 35.8rem;
+  height: 5rem;
+  padding: 1.3rem 3.2rem;
+  border-radius: 17.9rem;
+  background: $bg-color;
+  display: flex;
+  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
+
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
+    cursor: auto;
+  }
+
+  input {
+    background: $bg-color;
+    margin-left: 3rem;
+    width: 100%;
+    @include fonts-styles(1.8rem, 500);
+
+    &::placeholder {
+      color: $text-gray;
+    }
+  }
+}
+
+.active {
+  border: 0.1rem solid $purple-1;
+  transition: border-color 125ms ease-in-out;
+}
+
+.input-error {
+  color: $rosa-error;
+  @include fonts-styles(1.4rem, 400);
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+}
