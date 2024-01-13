@@ -66,4 +66,8 @@ export class SelectAvatarComponent implements OnInit {
       this.fullName = user ? user.fullName : 'Test User';
     });
   }
+
+  registerUser() {
+    console.log(this.user);
+  }
 }
