@@ -1,4 +1,11 @@
-import { Component, EventEmitter, HostListener, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Output,
+  Renderer2,
+  ElementRef,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { InputComponent } from '../input/input.component';
@@ -43,7 +50,37 @@ export class SignUpComponent {
 
   user: User = new User({});
 
-  constructor(private router: Router, private dataService: DataService) {}
+  constructor(
+    private router: Router,
+    private dataService: DataService,
+    private renderer: Renderer2,
+    private el: ElementRef
+  ) {}
+
+  ngOnInit(): void {
+    this.checkWindowSize();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.checkWindowSize();
+  }
+
+  @HostListener('window:load', ['$event'])
+  onLoad(event: Event): void {
+    this.checkWindowSize();
+  }
+
+  private checkWindowSize(): void {
+    this.windowWidth = this.renderer.parentNode(
+      this.el.nativeElement
+    ).ownerDocument.defaultView.innerWidth;
+    if (this.windowWidth <= 1100) {
+      this.active = true;
+    } else {
+      this.active = false;
+    }
+  }
 
   navigateAndSendUser(): void {
     this.user.fullName = this.createFullName(this.user.fullName);
@@ -60,26 +97,6 @@ export class SignUpComponent {
     firstName = firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
     lastName = lastName[0].toUpperCase() + lastName.slice(1).toLowerCase();
     return `${firstName} ${lastName}`;
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event): void {
-    this.windowWidth = window.innerWidth;
-    if (this.windowWidth <= 1100) {
-      this.active = true;
-    } else {
-      this.active = false;
-    }
-  }
-
-  @HostListener('window:load', ['$event'])
-  onLoad(event: Event): void {
-    this.windowWidth = window.innerWidth;
-    if (this.windowWidth <= 1100) {
-      this.active = true;
-    } else {
-      this.active = false;
-    }
   }
 
   onValidityChanged(field: string, isValid: boolean) {

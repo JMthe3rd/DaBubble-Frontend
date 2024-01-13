@@ -11,7 +11,7 @@
           alt="Arrow back img"
         />
         <h2 class="select-avatar-content-header-title">
-          Wähle deinen <br />
+          Wähle deinen <br *ngIf="showParagraph" />
           Avatar
         </h2>
       </div>
@@ -53,5 +53,9 @@
 
       <button (click)="registerUser()" class="select-avatar-btn">Weiter</button>
     </mat-card>
+  </div>
+  <div class="legalContentContainer">
+    <a class="impressum" routerLink="/impressum">Impressum</a>
+    <a class="privacy-policy" routerLink="/privacy-policy">Datenschutz</a>
   </div>
 </div>
