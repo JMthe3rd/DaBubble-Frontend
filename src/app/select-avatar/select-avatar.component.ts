@@ -5,11 +5,18 @@ import { LogoComponent } from '../logo/logo.component';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-select-avatar',
   standalone: true,
-  imports: [LogoComponent, MatCardModule, CommonModule, RouterLink],
+  imports: [
+    LogoComponent,
+    MatCardModule,
+    CommonModule,
+    RouterLink,
+    MatProgressSpinnerModule,
+  ],
   templateUrl: './select-avatar.component.html',
   styleUrl: './select-avatar.component.scss',
 })
@@ -21,6 +28,7 @@ export class SelectAvatarComponent {
   showParagraph: boolean = true;
   windowWidth: number = 0;
   isGerman: boolean = false;
+  spinnerActive: boolean = false;
   avatars = [
     '../../assets/img/avatar1.svg',
     '../../assets/img/avatar2.svg',
@@ -79,7 +87,9 @@ export class SelectAvatarComponent {
     // Check if avatar or image has been uploaded (this.user.avatar) not undefined and then send this.user to database and redirect to home component.
     if (this.user) {
       if (this.user != undefined) {
+        this.spinnerActive = true;
         // Send this.user to database and redirect to home if success.
+        // Set spinner to false
       }
     }
   }

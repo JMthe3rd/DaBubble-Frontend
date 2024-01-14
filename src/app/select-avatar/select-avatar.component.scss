@@ -80,6 +80,7 @@
   height: 100vh;
   @include flex-center();
   flex-direction: column;
+  position: relative;
 
   .select-avatar-container {
     width: 39.8rem;
@@ -236,4 +237,9 @@
     font-family: Figtree;
     @include fonts-styles(1.8rem, 400);
   }
+}
+
+.register-spinner {
+  width: 13rem !important;
+  height: 13rem !important;
 }

@@ -18,7 +18,11 @@
 
       <div class="select-avatar-main-content">
         <div class="select-avatar-content-profile-img">
-          <img [src]="personImg" alt="Person img" />
+          <img *ngIf="!spinnerActive" [src]="personImg" alt="Person img" />
+          <mat-spinner
+            *ngIf="spinnerActive"
+            class="register-spinner"
+          ></mat-spinner>
         </div>
 
         <div class="select-avatar">
