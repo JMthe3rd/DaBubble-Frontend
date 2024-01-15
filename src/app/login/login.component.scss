@@ -1,40 +1,213 @@
 @import "./../colors.scss";
-// @import "./../mixins.scss";
+@import "./../mixins.scss";
 
 .purple {
     color: $purple-1;
 }
 
-.bold {
-    font-weight: bold;
-}
-
-.d-flex {
-    display: flex;
-}
-
-.align-center {
-    align-items: center;
+.purple2 {
+    color: $purple-2;
 }
 
 .text-center {
     text-align: center;
 }
 
-.bg-color {
-    background-color: $bg-color !important;
+
+span {
+    font-size: 17px;
 }
 
-// .flex-center {
-//     @include flex-center;
-// }
+h1 {
+    font-size: 32px;
+}
+
+.main {
+    @include flex-center;
+    width: 100%;
+    height: 100vh;
+}
 
 .login-container {
-    flex-direction: column;
     gap: 8px;
-    width: 310px;
+    @include flex-center;
+    @include flex-direction-column;
+    justify-content: unset !important;
 
-    .radius {
-        border-radius: 10px;
+    .card-content {
+        height: 45rem !important;
+        margin-top: 2rem;
+        padding: 1.25rem;
+        justify-content: space-evenly !important;
+        @include flex-center;
+        width: 37rem;
+        border-radius: 1.875rem;
+    }
+
+    .login-form {
+        gap: 2rem;
+        @include flex-direction-column();
+    }
+
+    .action-forgot-pw {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.form-btn-container {
+    @include flex-center;
+    width: 100%;
+    justify-content: space-around !important;
+
+    button {
+        border: unset;
+        padding: 1.2rem 2.5rem;
+        border-radius: 2.5rem;
+        line-height: normal;
+        margin-bottom: 3rem;
+        display: flex;
+        @include fonts-styles(1.8rem, 700);
+    }
+
+    button:first-of-type {
+        background: $purple-1;
+        color: $white;
+    }
+
+    button:nth-of-type(2n) {
+        border: 2px solid $purple-1;
+        color: $purple-1;
+    }
+}
+
+.go-2-registration {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 4rem;
+
+    p {
+        font-size: 18px;
+    }
+
+    button {
+        border: 2px solid $purple-1;
+        padding: 1.2rem 2.5rem;
+        border-radius: 2.5rem;
+        line-height: normal;
+        margin-bottom: 3rem;
+        display: flex;
+        @include fonts-styles(1.8rem, 700);
+        color: $purple-1;
+    }
+}
+
+.bg-gradient {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background: linear-gradient(1deg, #313AE5 1.22%, #797EF3 98.76%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //  animation: transparent 6s ease-out;
+}
+
+
+.logo-wrapper {
+    @include flex-center;
+    gap: 1rem;
+    position: absolute;
+    z-index: 999;
+    height: 100vh;
+    width: 100%;
+
+    &.animate-logo {
+        animation: findFinalPosition 5s forwards;
+
+        @keyframes findFinalPosition {
+            0% {
+                transform: translateY(-50px);
+            } 
+            10% {
+                transform: translateY(-100px);
+            }
+            20% {
+                transform: translateY(-100px);
+            }
+            30% {
+                transform: translateY(-100px);
+            }
+            40% {
+                transform: translateY(-100px);
+            }
+            50% {
+                transform: translateY(-100px);
+            }
+            60% {
+                transform: translateY(-100px);
+            }
+            70% {
+                transform: translateY(-100px);
+            }
+            to {
+                position: absolute;
+                top: 2rem;
+                height: 90px;
+            }
+        }
+    }
+}
+
+.logo-img {
+    padding: 0.8rem;
+    z-index: 3;
+
+}
+
+.logo-name {
+    z-index: 4;
+
+    img {
+        animation: slidein 7s forwards;
+
+        filter: invert(100%);
+        -webkit-filter: invert(100%);
+
+        &.invert {
+            animation: changeColor 4s forwards;
+        }
+
+        @keyframes changeColor {
+            to {
+                filter: unset;
+            }
+        }
+    }
+}
+
+.bg-transparent {
+    background: transparent;
+    z-index: -1;
+}
+
+@keyframes slidein {
+    0% {
+        margin-left: -800px;
+    }
+
+    20% {
+        margin-left: -800px;
+    }
+
+    35% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: 0px;
     }
 }
