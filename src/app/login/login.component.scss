@@ -1,0 +1,108 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+
+#start-screen {
+  width: 100%;
+  height: 100vh;
+  background: $welcome-screen-gradient;
+  @include flex-center();
+  position: relative;
+  animation: changeBackground 0.5s forwards;
+  animation-delay: 2.2s;
+  transition: all 2.2s ease-in-out;
+
+  .logo-big {
+    opacity: 0;
+    position: absolute;
+    top: 7.5rem;
+    left: 7.5rem;
+    animation: showLogo 0.5s forwards;
+    animation-delay: 2.4s;
+    transition: all 2.4s ease-in-out;
+  }
+
+  .animation-container {
+    width: 69.6rem;
+    height: 18.4rem;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: startAnimationContainer 0.5s forwards;
+    animation-delay: 2s;
+    transition: all 2s ease-in-out;
+
+    .animation-left-container {
+      width: 39.6rem;
+      height: 18.4rem;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+
+      img {
+        animation: startAnimationLogo 0.5s forwards;
+        transition: left 0.5s ease-in;
+        position: absolute;
+        left: 26rem;
+      }
+    }
+
+    .animation-right-container {
+      width: 48rem;
+      height: 18.4rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      animation: startAnimationLogoName 2s forwards;
+      transition: left 2s ease-in;
+      position: absolute;
+      left: -47rem;
+    }
+  }
+}
+
+@keyframes changeBackground {
+  100% {
+    background: $bg-color;
+  }
+}
+
+@keyframes showLogo {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes startAnimationContainer {
+  98% {
+    transform: scale(0.33);
+    top: 1.6rem;
+    left: -15rem;
+  }
+  100% {
+    display: none;
+    transform: scale(0.33);
+    top: 1.6rem;
+    left: -15rem;
+  }
+}
+
+@keyframes startAnimationLogo {
+  100% {
+    left: 0rem;
+  }
+}
+
+@keyframes startAnimationLogoName {
+  70% {
+    overflow: visible;
+  }
+  100% {
+    left: -8rem;
+  }
+}
