@@ -7,18 +7,28 @@
   background: $welcome-screen-gradient;
   @include flex-center();
   position: relative;
-  animation: changeBackground 0.5s forwards;
-  animation-delay: 2.2s;
-  transition: all 2.2s ease-in-out;
+  @include animation(changeBackground, 0.5s, 2.4s, 1);
 
   .logo-big {
-    opacity: 0;
+    z-index: -1;
     position: absolute;
     top: 7.5rem;
     left: 7.5rem;
-    animation: showLogo 0.5s forwards;
-    animation-delay: 2.4s;
-    transition: all 2.4s ease-in-out;
+    @include animation(showLogo, 0.5s, 2.4s, 1);
+  }
+
+  .on-start-logo {
+    position: absolute;
+    top: 7.5rem;
+    left: 7.5rem;
+  }
+
+  .desktop-animation {
+    @include animation(startAnimationDesktop, 0.5s, 2s, 1);
+  }
+
+  .mobile-animation {
+    @include animation(startAnimationMobile, 0.5s, 2s, 1);
   }
 
   .animation-container {
@@ -30,9 +40,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: startAnimationContainer 0.5s forwards;
-    animation-delay: 2s;
-    transition: all 2s ease-in-out;
 
     .animation-left-container {
       width: 39.6rem;
@@ -50,11 +57,12 @@
     }
 
     .animation-right-container {
-      width: 48rem;
+      width: 83rem;
       height: 18.4rem;
       position: relative;
       display: flex;
       align-items: center;
+      overflow: hidden;
     }
 
     img {
@@ -66,6 +74,12 @@
   }
 }
 
+@keyframes showBigLogo {
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes changeBackground {
   100% {
     background: $bg-color;
@@ -74,11 +88,11 @@
 
 @keyframes showLogo {
   100% {
-    opacity: 1;
+    z-index: 1;
   }
 }
 
-@keyframes startAnimationContainer {
+@keyframes startAnimationDesktop {
   98% {
     transform: scale(0.33);
     top: 1.6rem;
@@ -89,6 +103,22 @@
     transform: scale(0.33);
     top: 1.6rem;
     left: -15rem;
+  }
+}
+
+@keyframes startAnimationMobile {
+  98% {
+    top: 14rem;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  100% {
+    display: none;
+    top: 14rem;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%) scale(0.3);
   }
 }
 
@@ -103,6 +133,116 @@
     overflow: visible;
   }
   100% {
-    left: -8rem;
+    left: 0rem;
+  }
+}
+
+.purple {
+  color: $purple-1;
+}
+
+.purple2 {
+  color: $purple-2;
+}
+
+.text-center {
+  text-align: center;
+}
+
+span {
+  font-size: 17px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.main {
+  @include flex-center;
+  width: 100%;
+  height: 100vh;
+}
+
+.login-container {
+  opacity: 0;
+  gap: 8px;
+  @include flex-center;
+  @include flex-direction-column;
+  justify-content: unset !important;
+  @include animation(showLoginContainer, 0.5s, 2.4s, 1);
+
+  .card-content {
+    height: 45rem !important;
+    margin-top: 2rem;
+    padding: 1.25rem;
+    justify-content: space-evenly !important;
+    @include flex-center;
+    width: 37rem;
+    border-radius: 1.875rem;
+  }
+
+  .login-form {
+    gap: 2rem;
+    @include flex-direction-column();
+  }
+
+  .action-forgot-pw {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.form-btn-container {
+  @include flex-center;
+  width: 100%;
+  justify-content: space-around !important;
+
+  button {
+    border: unset;
+    padding: 1.2rem 2.5rem;
+    border-radius: 2.5rem;
+    line-height: normal;
+    margin-bottom: 3rem;
+    display: flex;
+    @include fonts-styles(1.8rem, 700);
+  }
+
+  button:first-of-type {
+    background: $purple-1;
+    color: $white;
+  }
+
+  button:nth-of-type(2n) {
+    border: 2px solid $purple-1;
+    color: $purple-1;
+  }
+}
+
+.go-2-registration {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+
+  p {
+    font-size: 18px;
+  }
+
+  button {
+    border: 2px solid $purple-1;
+    padding: 1.2rem 2.5rem;
+    border-radius: 2.5rem;
+    line-height: normal;
+    margin-bottom: 3rem;
+    display: flex;
+    @include fonts-styles(1.8rem, 700);
+    color: $purple-1;
+  }
+}
+
+@keyframes showLoginContainer {
+  100% {
+    opacity: 1;
   }
 }

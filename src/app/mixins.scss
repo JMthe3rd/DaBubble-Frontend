@@ -16,3 +16,10 @@
   font-weight: $fw;
   line-height: 120%;
 }
+
+@mixin animation($name, $duration, $delay, $counting) {
+  animation: $name $duration forwards;
+  animation-delay: $delay;
+  animation-iteration-count: $counting;
+  transition: all $delay ease-in-out;
+}

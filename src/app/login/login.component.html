@@ -1,15 +1,71 @@
 <div id="start-screen">
-  <img
-    class="logo-big"
-    src="../../assets/img/logo-desktop.svg"
-    alt="Logo big"
-  />
-  <div class="animation-container">
+  <ng-container *ngIf="showDesktop">
+    <img
+      [ngClass]="{ 'logo-big': logoBig }"
+      class="on-start-logo"
+      src="../../assets/img/logo-desktop.svg"
+      alt="Logo big"
+    />
+  </ng-container>
+
+  <div
+    [ngClass]="{
+      'desktop-animation': desktopAnimation,
+      'mobile-animation': mobileAnimation
+    }"
+    class="animation-container"
+  >
     <div class="animation-left-container">
       <img src="../../assets/img/logo-big.svg" alt="Logo big image" />
     </div>
     <div class="animation-right-container">
       <img src="../../assets/img/logo-name.svg" alt="Logo name big" />
+    </div>
+  </div>
+
+  <!-- animation-container noch einmal kopieren und nachstellen fur mobile -->
+
+  <div class="login-container">
+    <ng-container *ngIf="showMobile">
+      <app-logo></app-logo>
+    </ng-container>
+
+    <div class="card-container">
+      <mat-card class="card-content">
+        <h1 class="purple">Anmeldung</h1>
+        <span class="text-center"
+          >Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der
+          Arbeit verwendest.</span
+        >
+
+        <form class="login-form d-flex flex-column align-center" action="">
+          <app-input
+            placeholder="beispielname@email.com"
+            inputType="email"
+            img="../../assets/img/mail.svg"
+          ></app-input>
+
+          <app-input
+            placeholder="Passwort"
+            img="../../assets/img/lock.svg"
+            inputType="password"
+          >
+          </app-input>
+
+          <span class="action-forgot-pw text-center purple2"
+            >Passwort vergessen</span
+          >
+
+          <div class="form-btn-container">
+            <button>Anmelden</button>
+            <button>Gäste-Login</button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+    <div class="go-2-registration">
+      <p class="text-center">Neu bei DABubble?</p>
+      <button routerLink="/sign-up">Konto erstellen</button>
     </div>
   </div>
 </div>
