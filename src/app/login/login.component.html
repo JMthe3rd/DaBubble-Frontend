@@ -13,17 +13,30 @@
       'desktop-animation': desktopAnimation,
       'mobile-animation': mobileAnimation
     }"
+    [style.width.rem]="show ? 70 : 21"
     class="animation-container"
   >
-    <div class="animation-left-container">
-      <img src="../../assets/img/logo-big.svg" alt="Logo big image" />
+    <div
+      [style.width.rem]="show ? 40 : 31"
+      class="animation-left-container"
+    >
+      <img
+        [style.width.rem]="show ? 19 : 6"
+        src="../../assets/img/logo.svg"
+        alt="Logo big image"
+      />
     </div>
-    <div class="animation-right-container">
-      <img src="../../assets/img/logo-name.svg" alt="Logo name big" />
+    <div
+      [style.width.rem]="show ? 83 : 79"
+      class="animation-right-container"
+    >
+      <img
+        [style.width.rem]="show ? 43 : 15"
+        src="../../assets/img/logo-name.svg"
+        alt="Logo name big"
+      />
     </div>
   </div>
-
-  <!-- animation-container noch einmal kopieren und nachstellen fur mobile -->
 
   <div class="login-container">
     <ng-container *ngIf="showMobile">

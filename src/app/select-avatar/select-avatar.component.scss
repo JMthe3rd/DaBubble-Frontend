@@ -4,7 +4,7 @@
 @media only screen and (min-width: 1100px) {
   .select-avatar-container {
     width: 60.6rem !important;
-    height: 66.9rem !important;
+    height: 62.9rem !important;
     flex-direction: row !important;
 
     app-logo {
@@ -81,6 +81,7 @@
   @include flex-center();
   flex-direction: column;
   position: relative;
+  margin-top: 2rem;
 
   .select-avatar-container {
     width: 39.8rem;
@@ -227,8 +228,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  bottom: 4.8rem;
+  margin-top: 2rem;
 
   .impressum,
   .privacy-policy {

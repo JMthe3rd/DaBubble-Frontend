@@ -32,7 +32,6 @@
   }
 
   .animation-container {
-    width: 69.6rem;
     height: 18.4rem;
     display: flex;
     justify-content: center;
@@ -40,13 +39,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 1;
 
     .animation-left-container {
-      width: 39.6rem;
       height: 18.4rem;
       position: relative;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
 
       img {
         animation: startAnimationLogo 0.5s forwards;
@@ -57,7 +57,6 @@
     }
 
     .animation-right-container {
-      width: 83rem;
       height: 18.4rem;
       position: relative;
       display: flex;
@@ -108,14 +107,14 @@
 
 @keyframes startAnimationMobile {
   98% {
-    top: 14rem;
+    top: 14%;
     left: 50%;
     right: 50%;
     transform: translate(-50%, -50%) scale(0.3);
   }
   100% {
     display: none;
-    top: 14rem;
+    top: 14%;
     left: 50%;
     right: 50%;
     transform: translate(-50%, -50%) scale(0.3);
@@ -124,7 +123,7 @@
 
 @keyframes startAnimationLogo {
   100% {
-    left: 0rem;
+    left: -1rem;
   }
 }
 
@@ -166,6 +165,7 @@ h1 {
 .login-container {
   opacity: 0;
   gap: 8px;
+  margin-top: 7rem;
   @include flex-center;
   @include flex-direction-column;
   justify-content: unset !important;

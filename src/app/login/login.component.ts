@@ -39,38 +39,37 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, renderer: Renderer2, el: ElementRef) {
     this.renderer = renderer;
     this.el = el;
+
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth <= 1100) {
+      this.show = false;
+      this.mobileAnimation = true;
+      this.showDesktop = false;
+      this.showMobile = true;
+      this.logoBig = false;
+    } else {
+      this.show = true;
+      this.desktopAnimation = true;
+      this.showDesktop = true;
+      this.showMobile = false;
+    }
   }
-  removeBackground: boolean = false;
-  moveLogo: boolean = false;
-  changeLogoColor: boolean = false;
-  animationCompleted: boolean = false;
   showDesktop: boolean = false;
   showMobile: boolean = false;
   windowWidth: number = 0;
   logoBig: boolean = false;
   desktopAnimation: boolean = false;
   mobileAnimation: boolean = false;
-  mobileActive: boolean = false;
+  show: boolean = false;
   @ViewChild('animationContainer') animationContainer!: ElementRef;
 
   ngOnInit(): void {
     this.logoBig = true;
-    this.checkWindowSize();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
-    this.checkWindowSize();
-  }
-
-  @HostListener('window:load', ['$event'])
-  onLoad(event: Event): void {
-    if (this.windowWidth <= 1100) {
-      this.mobileActive = true;
-      this.mobileAnimation = true;
-    } else {
-      this.desktopAnimation = true;
-    }
     this.checkWindowSize();
   }
 
@@ -79,10 +78,12 @@ export class LoginComponent implements OnInit {
       this.el.nativeElement
     ).ownerDocument.defaultView.innerWidth;
     if (this.windowWidth <= 1100) {
+      this.show = false;
       this.showDesktop = false;
       this.showMobile = true;
       this.logoBig = false;
     } else {
+      this.show = true;
       this.showDesktop = true;
       this.showMobile = false;
     }

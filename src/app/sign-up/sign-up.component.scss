@@ -17,7 +17,7 @@
 
   .sign-up-content {
     width: 100% !important;
-    height: 66.9rem !important;
+    height: 63.9rem !important;
     justify-content: flex-start !important;
   }
 
@@ -58,7 +58,6 @@
   }
 
   .sign-up-content-form-btn {
-    margin-top: 4rem !important;
     margin-bottom: 0 !important;
   }
 }
@@ -66,7 +65,9 @@
 #sign-up-main-container {
   width: 100%;
   height: 100vh;
-  @include flex-center();
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
 
   .sign-up-container {
@@ -173,8 +174,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    bottom: 4.8rem;
+    margin-top: 2rem;
 
     .impressum,
     .privacy-policy {
