@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResetPwComponent } from './reset-pw.component';
+import { SendMailPwComponent } from './send-mail-pw.component';
 
-describe('ResetPwComponent', () => {
-  let component: ResetPwComponent;
-  let fixture: ComponentFixture<ResetPwComponent>;
+describe('SendMailPwComponent', () => {
+  let component: SendMailPwComponent;
+  let fixture: ComponentFixture<SendMailPwComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ResetPwComponent]
+      imports: [SendMailPwComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ResetPwComponent);
+    fixture = TestBed.createComponent(SendMailPwComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

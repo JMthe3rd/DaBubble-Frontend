@@ -2,11 +2,11 @@ import { Routes } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SelectAvatarComponent } from './select-avatar/select-avatar.component';
 import { LoginComponent } from './login/login.component';
-import { ResetPwComponent } from './reset-pw/reset-pw.component';
+import { SendMailPwComponent } from './send-mail-pw/send-mail-pw.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'reset-pw', component: ResetPwComponent },
+  { path: 'send-mail-pw', component: SendMailPwComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'select-avatar', component: SelectAvatarComponent },
 ];
