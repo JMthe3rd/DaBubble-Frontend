@@ -6,7 +6,6 @@ import { MatCardModule } from '@angular/material/card';
 import { InputComponent } from "../input/input.component";
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { ATestInputComponent } from "../a-test-input/a-test-input.component";
 
 
 @Component({
@@ -20,8 +19,7 @@ import { ATestInputComponent } from "../a-test-input/a-test-input.component";
         LogoMiddleComponent,
         MatCardModule,
         ReactiveFormsModule,
-        RouterLink,
-        ATestInputComponent
+        RouterLink
     ]
 })
 export class ResetPwComponent {
