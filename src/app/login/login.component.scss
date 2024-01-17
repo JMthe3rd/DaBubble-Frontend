@@ -293,12 +293,23 @@ h1 {
   button:first-of-type {
     background: $purple-1;
     color: $white;
+    transition: all 225ms ease;
+
+    &:hover {
+      background: rgba(121,126,243, 0.9);
+    }
   }
 
   button:nth-of-type(2n) {
     border: 2px solid $purple-1;
     color: $purple-1;
     background-color: white;
+    transition: all 225ms ease;
+
+    &:hover{
+      background-color: $purple-1;
+      color: white;
+    }
   }
 }
 
