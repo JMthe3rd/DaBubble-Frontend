@@ -81,7 +81,6 @@
   @include flex-center();
   flex-direction: column;
   position: relative;
-  margin-top: 2rem;
 
   .select-avatar-container {
     width: 39.8rem;
@@ -178,6 +177,7 @@
       color: var(--White, #fff);
       @include fonts-styles(1.8rem, 700);
       line-height: normal;
+      margin-top: 1rem;
     }
 
     .select-avatar-upload-foto {
