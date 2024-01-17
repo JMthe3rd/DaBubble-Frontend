@@ -2,24 +2,24 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, Form, FormControl, ValidationErrors } from '@angular/forms';
 import { InputComponent } from "../input/input.component";
-import { LogoMiddleComponent } from "../logo-middle/logo-middle.component";
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LogoComponent } from "../logo/logo.component";
 
 @Component({
-  selector: 'app-reset-pw',
-  standalone: true,
-  templateUrl: './reset-pw.component.html',
-  styleUrl: './reset-pw.component.scss',
-  imports: [
-    CommonModule,
-    InputComponent,
-    LogoMiddleComponent,
-    MatCardModule,
-    MatFormFieldModule,
-    ReactiveFormsModule
-  ]
+    selector: 'app-reset-pw',
+    standalone: true,
+    templateUrl: './reset-pw.component.html',
+    styleUrl: './reset-pw.component.scss',
+    imports: [
+        CommonModule,
+        InputComponent,
+        MatCardModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        LogoComponent
+    ]
 })
 export class ResetPwComponent implements OnInit {
   resetPwForm!: FormGroup;
