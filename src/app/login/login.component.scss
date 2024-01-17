@@ -98,6 +98,7 @@
   @include flex-center();
   position: relative;
   @include animation(changeBackground, 0.5s, 2.4s, 1);
+  overflow: hidden;
 
   .logo-big {
     z-index: -1;
