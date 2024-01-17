@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router'
 import { CommonModule } from '@angular/common';
 import {
   Validators,
@@ -23,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   styleUrl: './input.component.scss',
 })
 export class InputComponent {
+  constructor(public router: Router) { }
   isInputActive: boolean = false;
 
   @Input() inputType: string = 'text';
