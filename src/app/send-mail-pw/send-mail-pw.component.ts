@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { LogoMiddleComponent } from "../logo-middle/logo-middle.component";
+import { LogoComponent } from "../logo/logo.component";
 import { MatCardModule } from '@angular/material/card';
 import { InputComponent } from "../input/input.component";
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +16,7 @@ import { RouterLink } from '@angular/router';
     imports: [
         FormsModule,
         InputComponent,
-        LogoMiddleComponent,
+        LogoComponent,
         MatCardModule,
         ReactiveFormsModule,
         RouterLink
