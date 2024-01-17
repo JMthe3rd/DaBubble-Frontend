@@ -1,0 +1,28 @@
+<div class="main">
+    <ng-container class="logo">
+        <app-logo-middle></app-logo-middle>
+    </ng-container>
+
+    <div class="reset-pw-main-wrapper">
+        <mat-card class="card-container">
+            <mat-card-header class="card-header">
+                <h1 class="purple text-center">Passwort <br> zurücksetzen</h1>
+            </mat-card-header>
+
+            <form action="?" (ngSubmit)="resetPW()" [formGroup]="resetPwForm">
+                <div class="input-container">
+                    <app-input formControlName="password" inputType="password" placeholder="Neues Passwort"></app-input>
+                    <app-input formControlName="passwordConfirm" inputType="password"
+                        placeholder="Neues Kennwort bestätigen"></app-input>
+                        <ng-container class="error" *ngIf="resetPwForm.errors?.['passwordMismatch']">Die Passwörter stimmen nicht überein.</ng-container>
+                </div>
+                <div class="btn-container">
+                    <button type="submit">Passwort ändern</button>
+                </div>
+            </form>
+
+        </mat-card>
+    </div>
+</div>
+
+<!-- [disabled]="!resetPwForm.valid" -->

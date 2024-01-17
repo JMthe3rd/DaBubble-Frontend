@@ -1,5 +1,5 @@
 <div [ngClass]="{ active: isInputActive }" class="reusable-input" matInput>
-  <img [src]="img" alt="Image" />
+  <img *ngIf="router.url !== '/reset-pw'" [src]="img" alt="Image" />
   <input
     [type]="inputType"
     (focus)="handleFocus()"
