@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { LogoMiddleComponent } from '../logo-middle/logo-middle.component';
 import { InputComponent } from '../input/input.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -27,7 +28,7 @@ import { InputComponent } from '../input/input.component';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router) {
+  constructor(private router: Router, public dialog: MatDialog) {
   }
   removeBackground: boolean = false;
   moveLogo: boolean = false;
