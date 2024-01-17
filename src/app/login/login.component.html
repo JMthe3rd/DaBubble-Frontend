@@ -1,40 +1,18 @@
 <div id="start-screen">
   <ng-container *ngIf="showDesktop">
-    <img
-      [ngClass]="{ 'logo-big': logoBig }"
-      class="on-start-logo"
-      src="../../assets/img/logo-desktop.svg"
-      alt="Logo big"
-    />
+    <img [ngClass]="{ 'logo-big': logoBig }" class="on-start-logo" src="../../assets/img/logo-desktop.svg"
+      alt="Logo big" />
   </ng-container>
 
-  <div
-    [ngClass]="{
+  <div [ngClass]="{
       'desktop-animation': desktopAnimation,
       'mobile-animation': mobileAnimation
-    }"
-    [style.width.rem]="show ? 70 : 21"
-    class="animation-container"
-  >
-    <div
-      [style.width.rem]="show ? 40 : 31"
-      class="animation-left-container"
-    >
-      <img
-        [style.width.rem]="show ? 19 : 6"
-        src="../../assets/img/logo.svg"
-        alt="Logo big image"
-      />
+    }" [style.width.rem]="show ? 70 : 21" class="animation-container">
+    <div [style.width.rem]="show ? 40 : 31" class="animation-left-container">
+      <img [style.width.rem]="show ? 19 : 6" src="../../assets/img/logo.svg" alt="Logo big image" />
     </div>
-    <div
-      [style.width.rem]="show ? 83 : 79"
-      class="animation-right-container"
-    >
-      <img
-        [style.width.rem]="show ? 43 : 15"
-        src="../../assets/img/logo-name.svg"
-        alt="Logo name big"
-      />
+    <div [style.width.rem]="show ? 83 : 79" class="animation-right-container">
+      <img [style.width.rem]="show ? 43 : 15" src="../../assets/img/logo-name.svg" alt="Logo name big" />
     </div>
   </div>
 
@@ -46,28 +24,16 @@
     <div class="card-container">
       <mat-card class="card-content">
         <h1 class="purple">Anmeldung</h1>
-        <span class="text-center"
-          >Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der
-          Arbeit verwendest.</span
-        >
+        <span class="text-center">Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der
+          Arbeit verwendest.</span>
 
         <form class="login-form d-flex flex-column align-center" action="">
-          <app-input
-            placeholder="beispielname@email.com"
-            inputType="email"
-            img="../../assets/img/mail.svg"
-          ></app-input>
+          <app-input placeholder="beispielname@email.com" inputType="email" img="../../assets/img/mail.svg"></app-input>
 
-          <app-input
-            placeholder="Passwort"
-            img="../../assets/img/lock.svg"
-            inputType="password"
-          >
+          <app-input placeholder="Passwort" img="../../assets/img/lock.svg" inputType="password">
           </app-input>
 
-          <span class="action-forgot-pw text-center purple2"
-            >Passwort vergessen</span
-          >
+          <span class="action-forgot-pw text-center purple2">Passwort vergessen</span>
 
           <div class="form-btn-container">
             <button>Anmelden</button>
@@ -80,5 +46,9 @@
       <p class="text-center">Neu bei DABubble?</p>
       <button routerLink="/sign-up">Konto erstellen</button>
     </div>
+  </div>
+  <div class="legalContentContainer">
+    <a class="impressum" routerLink="/impressum">Impressum</a>
+    <a class="privacy-policy" routerLink="/privacy-policy">Datenschutz</a>
   </div>
 </div>
