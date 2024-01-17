@@ -4,8 +4,6 @@ import { SelectAvatarComponent } from './select-avatar/select-avatar.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { LoginComponent } from './login/login.component';
 import { ImpressumComponent } from './impressum/impressum.component';
-import { SendEmailComponent } from './send-email/send-email.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SendMailPwComponent } from './send-mail-pw/send-mail-pw.component';
 import { ResetPwComponent } from './reset-pw/reset-pw.component';
 
@@ -15,8 +13,6 @@ export const routes: Routes = [
   { path: 'reset-pw', component: ResetPwComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'select-avatar', component: SelectAvatarComponent },
-  { path: 'send-email', component: SendEmailComponent },
-  { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'impressum', component: ImpressumComponent },
 ];
