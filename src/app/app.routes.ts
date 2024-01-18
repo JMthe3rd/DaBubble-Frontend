@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { SendMailPwComponent } from './send-mail-pw/send-mail-pw.component';
 import { ResetPwComponent } from './reset-pw/reset-pw.component';
+import { WorkspaceComponent } from './workspace/workspace.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'select-avatar', component: SelectAvatarComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'impressum', component: ImpressumComponent },
+  { path: 'workspace', component: WorkspaceComponent },
 ];
