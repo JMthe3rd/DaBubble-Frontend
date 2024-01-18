@@ -32,8 +32,8 @@
 
         </div>
 
-        <div class="drawer-container" [class.scroll]="showDMs">
-            <div class="drawer">
+        <div class="drawer-container scroll">
+            <div class="drawer fixed">
                 <div class="drawer-header">
                     <img [class.rotate]="!showDMs" src="./../../assets/img/arrow_drop_down.svg" alt="drop down">
                     <span (click)="showDMs = !showDMs">
@@ -42,13 +42,15 @@
                     </span>
                 </div>
 
-                @if (showDMs) {
+            </div>
+
+            @if (showDMs) {
+            <div class="dm-list-container">
                 <ng-container *ngFor="let dm of user.directMessages">
                     <app-direct-message-list-item [directMessages]="dm"></app-direct-message-list-item>
                 </ng-container>
-
-                }
             </div>
+            }
         </div>
 
     </div>

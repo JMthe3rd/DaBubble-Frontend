@@ -17,7 +17,7 @@ import { Router, RouterModule } from "@angular/router";
   styleUrl: './workspace.component.scss'
 })
 export class WorkspaceComponent implements OnInit {
-  showChannels: boolean = true;
+  showChannels: boolean = false;
   showDMs: boolean = true;
   constructor(
     private router: Router

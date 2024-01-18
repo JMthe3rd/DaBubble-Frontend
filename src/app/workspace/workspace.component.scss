@@ -32,9 +32,10 @@ h1 {
     height: calc(100vh - 8rem);
     overflow: hidden;
     gap: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    @include flexbox(flex, column, unset, stretch);
+    // display: flex;
+    // flex-direction: column;
+    // align-items: stretch;
     flex-basis: 26rem;
     flex-grow: 0.5;
     flex-shrink: 0.5;
@@ -53,6 +54,9 @@ h1 {
         width: 100%;
         gap: 3rem;
         display: grid;
+        &.fixed{
+            position: fixed;
+        }
     }
 
     .drawer-header {
@@ -62,6 +66,9 @@ h1 {
         align-items: center;
         gap: 2rem;
         width: 100%;
+        &:nth-of-type(2n){
+            position: fixed;
+        }
 
         img {
             &.rotate {
@@ -98,6 +105,10 @@ h1 {
     }
 }
 
+.dm-list-container {
+    margin-top: 4rem;
+}
+
 
 
 .btn-create-channel {
@@ -116,9 +127,6 @@ h1 {
         }
     }
 }
-
-// .btn-create-channel {
-// }
 
 .btn-show-workspace {
     display: none;
