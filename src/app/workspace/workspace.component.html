@@ -3,22 +3,14 @@
     <div class="drawer-container">
 
         <div class="drawer">
-            
+
             <div class="drawer-header">
-                <img 
-                    (click)="showChannels = !showChannels" 
-                    [class.rotate]="!showChannels"
-                    src="./../../assets/img/arrow_drop_down.svg" 
-                    alt="drop down"
-                    [class.invert]="!showChannels"
-                >
+                <img (click)="showChannels = !showChannels" [class.rotate]="!showChannels"
+                    src="./../../assets/img/arrow_drop_down.svg" alt="drop down" [class.invert]="!showChannels">
 
                 <span (click)="showChannels = !showChannels">
-                    <img 
-                        src="./../../assets/img/workspaces_0_channels.svg" 
-                        alt="channels"
-                        [class.invert]="!showChannels"
-                    >
+                    <img src="./../../assets/img/workspaces_0_channels.svg" alt="channels"
+                        [class.invert]="!showChannels">
 
                     <h1 [class.color-effect]="!showChannels">
                         Channels
@@ -34,6 +26,10 @@
                     <a [routerLink]="['/channel', channel.name]">{{ channel.name }}</a>
                 </div>
             </ng-container>
+            <button class="btn-create-channel">
+                <img src="./../../assets/img/add_border.svg" alt="add">
+                <a class="link-create">Channel hinzufügen</a>
+            </button>
             }
         </div>
 
@@ -45,9 +41,7 @@
                 <img [class.rotate]="!showDMs" src="./../../assets/img/arrow_drop_down.svg" alt="drop down">
                 <span (click)="showDMs = !showDMs">
                     <img src="./../../assets/img/workspaces_1_DM.svg" alt="account circle">
-                    <h1>
-                        Direktnachrichten
-                    </h1>
+                    <h1 [class.color-effect]="!showDMs">Direktnachrichten</h1>
                 </span>
             </div>
             @if (showDMs) {
