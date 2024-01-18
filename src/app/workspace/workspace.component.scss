@@ -2,7 +2,16 @@
 @import "../mixins.scss";
 
 body {
-    height: unset;
+    height: unset !important;
+    background-color: white !important;
+}
+
+.main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
@@ -20,27 +29,30 @@ h1 {
 
 .workspace-wrapper {
     background-color: white !important;
-    width: auto;
-    max-width: 30rem;
     height: calc(100vh - 8rem);
     overflow: hidden;
     gap: 2rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    margin: 1.5rem 3rem 1.5rem 3rem;
+    flex-basis: 26rem;
+    flex-grow: 0.5;
+    flex-shrink: 0.5;
+    align-self: center;
     padding: 0 1.5rem 0 1.5rem;
 }
 
 .drawer-container {
     width: 100%;
 
+    &.scroll {
+        overflow: scroll;
+    }
+
     .drawer {
         width: 100%;
         gap: 3rem;
         display: grid;
-
-
     }
 
     .drawer-header {
@@ -48,7 +60,7 @@ h1 {
         position: relative;
         display: flex;
         align-items: center;
-        gap: 3rem;
+        gap: 2rem;
         width: 100%;
 
         img {
@@ -87,9 +99,9 @@ h1 {
 }
 
 
-.links-2-dm,
+
 .btn-create-channel {
-    margin-left: 3.7rem;
+    margin-left: 2.2rem;
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -98,7 +110,8 @@ h1 {
     a {
         @include fonts-styles(17px, 400);
         color: black;
-        &.link-create{
+
+        &.link-create {
             color: $purple-3;
         }
     }

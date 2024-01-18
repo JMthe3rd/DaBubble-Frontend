@@ -15,7 +15,7 @@ export class ChannelListItemComponent {
   // @Input() channels!: Array<{ name: string }>;
   @Input() user!: {
     channels: Array<{ name: string }>,
-    directMessages: Array<any>;
+    // directMessages: Array<any>;
   };
   constructor(private router: Router){}
 }

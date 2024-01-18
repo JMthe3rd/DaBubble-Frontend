@@ -1,54 +1,55 @@
-<div class="workspace-wrapper">
+<div class="main">
+    <div class="workspace-wrapper">
 
-    <div class="drawer-container">
+        <div class="drawer-container">
 
-        <div class="drawer">
+            <div class="drawer">
 
-            <div class="drawer-header">
-                <img (click)="showChannels = !showChannels" [class.rotate]="!showChannels"
-                    src="./../../assets/img/arrow_drop_down.svg" alt="drop down" [class.invert]="!showChannels">
+                <div class="drawer-header">
+                    <img (click)="showChannels = !showChannels" [class.rotate]="!showChannels"
+                        src="./../../assets/img/arrow_drop_down.svg" alt="drop down" [class.invert]="!showChannels">
 
-                <span (click)="showChannels = !showChannels">
-                    <img src="./../../assets/img/workspaces_0_channels.svg" alt="channels"
-                        [class.invert]="!showChannels">
+                    <span (click)="showChannels = !showChannels">
+                        <img src="./../../assets/img/workspaces_0_channels.svg" alt="channels"
+                            [class.invert]="!showChannels">
 
-                    <h1 [class.color-effect]="!showChannels">
-                        Channels
-                    </h1>
-                </span>
-                <button routerLink="/"><img src="./../../assets/img/add.svg" alt="adding channel"></button>
+                        <h1 [class.color-effect]="!showChannels">
+                            Channels
+                        </h1>
+                    </span>
+                    <button routerLink="/"><img src="./../../assets/img/add.svg" alt="adding channel"></button>
+                </div>
+
+                @if (showChannels) {
+                <ng-container *ngFor="let channel of user.channels">
+                    <app-channel-list-item [channels]="channel"></app-channel-list-item></ng-container>
+
+                <button class="btn-create-channel">
+                    <img src="./../../assets/img/add_border.svg" alt="add">
+                    <a class="link-create">Channel hinzufügen</a></button>
+                }
             </div>
 
-            @if (showChannels) {
-            <ng-container *ngFor="let channel of user.channels">
-                <app-channel-list-item  [channels]="channel"></app-channel-list-item>
+        </div>
 
-            </ng-container>
-            <button class="btn-create-channel">
-                <img src="./../../assets/img/add_border.svg" alt="add">
-                <a class="link-create">Channel hinzufügen</a>
-            </button>
-            }
+        <div class="drawer-container" [class.scroll]="showDMs">
+            <div class="drawer">
+                <div class="drawer-header">
+                    <img [class.rotate]="!showDMs" src="./../../assets/img/arrow_drop_down.svg" alt="drop down">
+                    <span (click)="showDMs = !showDMs">
+                        <img src="./../../assets/img/workspaces_1_DM.svg" alt="account circle">
+                        <h1 [class.color-effect]="!showDMs">Direktnachrichten</h1>
+                    </span>
+                </div>
+
+                @if (showDMs) {
+                <ng-container *ngFor="let dm of user.directMessages">
+                    <app-direct-message-list-item [directMessages]="dm"></app-direct-message-list-item>
+                </ng-container>
+
+                }
+            </div>
         </div>
 
     </div>
-
-    <div class="drawer-container">
-        <div class="drawer">
-            <div class="drawer-header">
-                <img [class.rotate]="!showDMs" src="./../../assets/img/arrow_drop_down.svg" alt="drop down">
-                <span (click)="showDMs = !showDMs">
-                    <img src="./../../assets/img/workspaces_1_DM.svg" alt="account circle">
-                    <h1 [class.color-effect]="!showDMs">Direktnachrichten</h1>
-                </span>
-            </div>
-            @if (showDMs) {
-
-            <div class="links-2-dm">
-                <a rounterLink="/UserId">USER (Du)</a>
-            </div>
-            }
-        </div>
-    </div>
-
 </div>
