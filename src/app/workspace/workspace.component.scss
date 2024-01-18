@@ -9,9 +9,7 @@ body {
 .main {
     height: 100vh;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexbox(flex, unset, center, center);
 }
 
 h1 {
@@ -33,9 +31,6 @@ h1 {
     overflow: hidden;
     gap: 2rem;
     @include flexbox(flex, column, unset, stretch);
-    // display: flex;
-    // flex-direction: column;
-    // align-items: stretch;
     flex-basis: 26rem;
     flex-grow: 0.5;
     flex-shrink: 0.5;
@@ -54,7 +49,8 @@ h1 {
         width: 100%;
         gap: 3rem;
         display: grid;
-        &.fixed{
+
+        &.fixed {
             position: fixed;
         }
     }
@@ -62,11 +58,11 @@ h1 {
     .drawer-header {
         margin-top: 1.5rem;
         position: relative;
-        display: flex;
-        align-items: center;
+        @include flexbox(flex, unset, unset, center);
         gap: 2rem;
         width: 100%;
-        &:nth-of-type(2n){
+
+        &:nth-of-type(2n) {
             position: fixed;
         }
 
@@ -83,14 +79,12 @@ h1 {
         }
 
         span {
-            display: flex;
+            @include flexbox(flex, unset, unset, center);
             gap: 1.5rem;
-            align-items: center;
         }
 
         button {
-            display: flex;
-            align-items: center;
+            @include flexbox(flex, unset, unset, center);
             position: absolute;
             right: 0;
             border-radius: 50%;
@@ -112,10 +106,9 @@ h1 {
 
 
 .btn-create-channel {
-    margin-left: 2.2rem;
-    display: flex;
-    align-items: center;
+    @include flexbox(flex, unset, unset, center);
     gap: 1.5rem;
+    margin-left: 2.2rem;
     background: transparent;
 
     a {
