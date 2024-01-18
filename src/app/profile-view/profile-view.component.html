@@ -11,9 +11,14 @@
 
     <div class="content-user-info">
       <div class="user-info">
-        <p>{{userFullName}}</p>
+        <p>{{ userFullName }}</p>
         <ng-container *ngIf="ifUserAcc">
-          <a routerLink="">Bearbeiten</a>
+          <a (click)="editAccount()" *ngIf="!mobileView" routerLink=""
+            >Bearbeiten</a
+          >
+          <a (click)="editAccount()" *ngIf="mobileView" routerLink=""
+            ><mat-icon>edit</mat-icon></a
+          >
         </ng-container>
       </div>
 
@@ -35,7 +40,7 @@
     </div>
 
     <div class="footer-user-email">
-      <p>{{userEmail}}</p>
+      <p>{{ userEmail }}</p>
     </div>
   </mat-card-footer>
 

@@ -6,7 +6,10 @@ import {
   OnInit,
   HostListener,
   Renderer2,
+  PLATFORM_ID,
+  Inject,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -36,23 +39,30 @@ import { LogoComponent } from './../logo/logo.component';
 export class LoginComponent implements OnInit {
   renderer: any = Renderer2;
   el: any = ElementRef;
-  constructor(private router: Router, renderer: Renderer2, el: ElementRef) {
+  constructor(
+    private router: Router,
+    renderer: Renderer2,
+    el: ElementRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
     this.renderer = renderer;
     this.el = el;
 
-    const screenWidth = window.innerWidth;
+    if (isPlatformBrowser(this.platformId)) {
+      const screenWidth = window.innerWidth;
 
-    if (screenWidth <= 1100) {
-      this.show = false;
-      this.mobileAnimation = true;
-      this.showDesktop = false;
-      this.showMobile = true;
-      this.logoBig = false;
-    } else {
-      this.show = true;
-      this.desktopAnimation = true;
-      this.showDesktop = true;
-      this.showMobile = false;
+      if (screenWidth <= 1100) {
+        this.show = false;
+        this.mobileAnimation = true;
+        this.showDesktop = false;
+        this.showMobile = true;
+        this.logoBig = false;
+      } else {
+        this.show = true;
+        this.desktopAnimation = true;
+        this.showDesktop = true;
+        this.showMobile = false;
+      }
     }
   }
   showDesktop: boolean = false;
