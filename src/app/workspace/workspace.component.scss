@@ -21,6 +21,7 @@ h1 {
 .workspace-wrapper {
     background-color: white !important;
     width: auto;
+    max-width: 30rem;
     height: calc(100vh - 8rem);
     overflow: hidden;
     gap: 2rem;
