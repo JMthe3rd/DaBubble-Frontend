@@ -1,7 +1,7 @@
 @import "../colors.scss";
 @import "../mixins.scss";
 
-boy {
+body {
     height: unset;
 }
 
@@ -86,7 +86,7 @@ h1 {
     }
 }
 
-.link-2-channels,
+
 .links-2-dm,
 .btn-create-channel {
     margin-left: 3.7rem;
@@ -97,10 +97,7 @@ h1 {
 
     a {
         @include fonts-styles(17px, 400);
-        color: black;
-        &.link-create {
-            color: $purple-3;
-        }
+        color: $purple-3;
     }
 }
 

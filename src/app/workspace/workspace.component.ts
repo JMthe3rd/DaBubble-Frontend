@@ -1,3 +1,4 @@
+import { ChannelListItemComponent } from './../channel-list-item/channel-list-item.component';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from "@angular/router";
@@ -6,6 +7,7 @@ import { Router, RouterModule } from "@angular/router";
   selector: 'app-workspace',
   standalone: true,
   imports: [
+    ChannelListItemComponent,
     CommonModule,
     RouterModule
   ],
@@ -26,7 +28,7 @@ export class WorkspaceComponent implements OnInit {
 
   user!: {
     channels: Array<{ name: string }>,
-    directMessages: Array<any> // Ersetzen Sie 'any' durch einen passenden Typ
+    directMessages: Array<any>
   };
   channels!: Array<{ name: string }>;
 

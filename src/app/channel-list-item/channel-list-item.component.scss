@@ -1,0 +1,14 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+
+.link-2-channels{
+    margin-left: 3.7rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: transparent;
+    a {
+        @include fonts-styles(17px, 400);
+        color: black;
+    }
+}
