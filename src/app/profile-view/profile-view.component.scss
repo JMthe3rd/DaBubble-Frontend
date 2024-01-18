@@ -1,6 +1,40 @@
 @import "../colors.scss";
 @import "../mixins.scss";
 
+@media only screen and (max-width: 1100px) {
+  #profile-view-card {
+    padding: 4rem 2rem !important;
+  }
+
+  .profile-view-card-header {
+    width: 35.8rem !important;
+  }
+
+  mat-card-content {
+    width: 35.8rem !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .profile-view-card-header {
+    width: 30rem !important;
+  }
+
+  mat-card-content {
+    width: 30rem !important;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .profile-view-card-header {
+    width: 25rem !important;
+  }
+
+  mat-card-content {
+    width: 25rem !important;
+  }
+}
+
 ::ng-deep .mat-mdc-dialog-container,
 ::ng-deep .mdc-dialog__surface {
   border-radius: 3rem !important;
