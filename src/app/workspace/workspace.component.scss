@@ -1,0 +1,116 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+
+boy {
+    height: unset;
+}
+
+h1 {
+    &.color-effect {
+        &:hover {
+            cursor: pointer;
+            color: $purple-2;
+        }
+    }
+}
+
+.workspace-wrapper {
+    background-color: white !important;
+    width: auto;
+    border: none;
+    height: calc(100vh - 8rem);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 2.5rem 4rem 2.5rem 4rem;
+}
+
+.drawer-container {
+    width: 100%;
+
+    .drawer {
+        width: 100%;
+        gap: 3rem;
+        display: grid;
+
+
+    }
+
+    .drawer-header {
+        margin-top: 1.5rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        width: 100%;
+
+        img {
+            &.rotate {
+                transform: rotate(-90deg);
+            }
+
+            &.invert {
+                &:hover {
+                    fill: $purple-2;
+                }
+            }
+        }
+
+        span {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 1rem;
+            border-radius: 50%;
+            padding: 1rem;
+            background: transparent;
+            transition: all 225ms ease;
+
+            &:hover {
+                background: $bg-color;
+            }
+        }
+    }
+}
+
+.link-2-channels,
+.links-2-dm {
+    margin-left: 3.7rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    a {
+        @include fonts-styles(17px, 400);
+        color: black;
+    }
+}
+
+.btn-show-workspace {
+    display: none;
+    position: relative;
+
+    button {
+        @media only screen and (min-width: 1100px) {
+            display: block;
+            position: absolute;
+            left: 0;
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+    }
+
+}
