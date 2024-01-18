@@ -1,1 +1,62 @@
-<p>workspace works!</p>
+<div class="workspace-wrapper">
+
+    <div class="drawer-container">
+
+        <div class="drawer">
+            
+            <div class="drawer-header">
+                <img 
+                    (click)="showChannels = !showChannels" 
+                    [class.rotate]="!showChannels"
+                    src="./../../assets/img/arrow_drop_down.svg" 
+                    alt="drop down"
+                    [class.invert]="!showChannels"
+                >
+
+                <span (click)="showChannels = !showChannels">
+                    <img 
+                        src="./../../assets/img/workspaces_0_channels.svg" 
+                        alt="channels"
+                        [class.invert]="!showChannels"
+                    >
+
+                    <h1 [class.color-effect]="!showChannels">
+                        Channels
+                    </h1>
+                </span>
+                <button routerLink="/"><img src="./../../assets/img/add.svg" alt="adding channel"></button>
+            </div>
+
+            @if (showChannels) {
+            <ng-container *ngFor="let channel of user.channels">
+                <div class="link-2-channels">
+                    <img src="./../../assets/img/hash.svg" alt="#">
+                    <a [routerLink]="['/channel', channel.name]">{{ channel.name }}</a>
+                </div>
+            </ng-container>
+            }
+        </div>
+
+    </div>
+
+    <div class="drawer-container">
+        <div class="drawer">
+            <div class="drawer-header">
+                <img [class.rotate]="!showDMs" src="./../../assets/img/arrow_drop_down.svg" alt="drop down">
+                <span (click)="showDMs = !showDMs">
+                    <img src="./../../assets/img/workspaces_1_DM.svg" alt="account circle">
+                    <h1>
+                        Direktnachrichten
+                    </h1>
+                </span>
+            </div>
+            @if (showDMs) {
+
+            <div class="links-2-dm">
+                <a rounterLink="/UserId">USER (Du)</a>
+            </div>
+            }
+        </div>
+    </div>
+
+</div>
