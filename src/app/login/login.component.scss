@@ -17,11 +17,11 @@
       border: unset !important;
       background-color: transparent !important;
       font-weight: normal !important;
-      color: rgba(121,126,243, 0.7) !important;
+      color: rgba(121, 126, 243, 0.7) !important;
       transition: color 225ms ease;
 
-      &:hover{
-        color: rgba(121,126,243, 1) !important;
+      &:hover {
+        color: rgba(121, 126, 243, 1) !important;
       }
     }
   }
@@ -54,39 +54,61 @@
     margin-top: 2rem;
     position: absolute;
     bottom: 7.5rem;
+    visibility: hidden;
+    opacity: 0;
+    animation: showUp 500ms ease-in;
+
 
     .impressum,
     .privacy-policy {
       padding: 10px 15px;
-      color: rgba(121,126,243, 0.7);
+      color: rgba(121, 126, 243, 0.7);
       font-family: Figtree;
       @include fonts-styles(1.8rem, 400);
     }
 
-    a{
+    a {
       transition: border-radius 225ms ease-in-out, border 225ms ease-in-out, color 225ms ease-in-out;
       border-radius: 2.5rem;
 
-      &:hover{
+      &:hover {
         border-radius: 2.5rem;
         border: 0.5px solid $purple-2;
-        color: rgba(121,126,243, 1);
+        color: rgba(121, 126, 243, 1);
       }
     }
   }
 }
-@media only screen and (min-width: 1100px) and (min-height: 800px){
-  .card-content{
+
+
+@media only screen and (min-width: 1100px) and (min-height: 800px) {
+  .card-content {
     height: 63.9rem !important;
   }
 
-  .legalContentContainer{
+  .legalContentContainer {
     bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+    animation: showUp 5s ease-in forwards;
+  }
+}
+
+@keyframes showUp {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
 @media only screen and (max-width: 1099px) {
-  .legalContentContainer{
+
+  .legalContentContainer {
     display: none;
   }
 }
@@ -304,7 +326,7 @@ h1 {
     transition: all 225ms ease;
 
     &:hover {
-      background: rgba(121,126,243, 0.9);
+      background: rgba(121, 126, 243, 0.9);
     }
   }
 
@@ -314,7 +336,7 @@ h1 {
     background-color: white;
     transition: all 225ms ease;
 
-    &:hover{
+    &:hover {
       background-color: $purple-1;
       color: white;
     }
