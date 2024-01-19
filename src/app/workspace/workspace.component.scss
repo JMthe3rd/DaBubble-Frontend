@@ -35,7 +35,8 @@ h1 {
     flex-grow: 0.5;
     flex-shrink: 0.5;
     align-self: center;
-    padding: 0 1.5rem 0 1.5rem;
+    padding: 2rem 2rem 2rem 2rem;
+    position: relative;
 }
 
 .drawer-container {
@@ -43,6 +44,7 @@ h1 {
 
     &.scroll {
         overflow: scroll;
+        overflow-x: hidden;
     }
 
     .drawer {
@@ -103,10 +105,8 @@ h1 {
 }
 
 .dm-list-container {
-    margin-top: 4rem;
+    margin-top: 6rem;
 }
-
-
 
 .btn-create-channel {
     @include flexbox(flex, unset, unset, center);
@@ -123,23 +123,41 @@ h1 {
         }
     }
 }
-
-.btn-show-workspace {
-    display: none;
-    position: relative;
-
-    button {
-        @media only screen and (min-width: 1100px) {
-            display: block;
-            position: absolute;
-            left: 0;
-            -webkit-transform: rotate(90deg);
-            -moz-transform: rotate(90deg);
-            -o-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
+button {
+    &.btn-write-dm {
+        background-color: $purple-1;
+        border-radius: 50%;
+        border: unset;
+        position: absolute;
+        right: 3rem;
+        bottom: 3rem;
+        @include flexbox(flex, unset, center, center);
+        height: 7rem;
+        width: 7rem;
+        padding: 3.5rem;
+        box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.20);
+        &:active{
+            background-color: $purple-2;
         }
-
     }
-
 }
+
+// .btn-show-workspace {
+//     display: none;
+//     position: relative;
+
+//     button {
+//         @media only screen and (min-width: 1100px) {
+//             display: block;
+//             position: absolute;
+//             left: 0;
+//             -webkit-transform: rotate(90deg);
+//             -moz-transform: rotate(90deg);
+//             -o-transform: rotate(90deg);
+//             -ms-transform: rotate(90deg);
+//             transform: rotate(90deg);
+//         }
+
+//     }
+
+// }
