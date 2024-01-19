@@ -58,7 +58,6 @@
     opacity: 0;
     animation: showUp 500ms ease-in;
 
-
     .impressum,
     .privacy-policy {
       padding: 10px 15px;
@@ -68,7 +67,8 @@
     }
 
     a {
-      transition: border-radius 225ms ease-in-out, border 225ms ease-in-out, color 225ms ease-in-out;
+      transition: border-radius 225ms ease-in-out, border 225ms ease-in-out,
+        color 225ms ease-in-out;
       border-radius: 2.5rem;
 
       &:hover {
@@ -79,7 +79,6 @@
     }
   }
 }
-
 
 @media only screen and (min-width: 1100px) and (min-height: 800px) {
   .card-content {
@@ -107,7 +106,6 @@
 }
 
 @media only screen and (max-width: 1099px) {
-
   .legalContentContainer {
     display: none;
   }

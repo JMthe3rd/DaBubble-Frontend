@@ -48,21 +48,19 @@ export class LoginComponent implements OnInit {
     this.renderer = renderer;
     this.el = el;
 
-    if (isPlatformBrowser(this.platformId)) {
-      const screenWidth = window.innerWidth;
+    const screenWidth = window.innerWidth;
 
-      if (screenWidth <= 1100) {
-        this.show = false;
-        this.mobileAnimation = true;
-        this.showDesktop = false;
-        this.showMobile = true;
-        this.logoBig = false;
-      } else {
-        this.show = true;
-        this.desktopAnimation = true;
-        this.showDesktop = true;
-        this.showMobile = false;
-      }
+    if (screenWidth <= 1100) {
+      this.show = false;
+      this.mobileAnimation = true;
+      this.showDesktop = false;
+      this.showMobile = true;
+      this.logoBig = false;
+    } else {
+      this.show = true;
+      this.desktopAnimation = true;
+      this.showDesktop = true;
+      this.showMobile = false;
     }
   }
   showDesktop: boolean = false;

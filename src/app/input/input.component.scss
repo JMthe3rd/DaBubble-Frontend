@@ -8,7 +8,6 @@
 }
 
 .reusable-input {
-  width: 35.8rem;
   height: 5rem;
   padding: 1.3rem 3.2rem;
   border-radius: 17.9rem;
@@ -25,7 +24,6 @@
 
   input {
     background: $bg-color;
-    margin-left: 3rem;
     width: 100%;
     @include fonts-styles(1.8rem, 500);
 

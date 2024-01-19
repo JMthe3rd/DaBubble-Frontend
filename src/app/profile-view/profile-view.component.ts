@@ -1,8 +1,13 @@
 import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { ProfileEditComponent } from '../profile-edit/profile-edit.component';
 
 @Component({
   selector: 'app-profile-view',
@@ -13,13 +18,14 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ProfileViewComponent {
   isActiveUser: boolean = true;
-  ifUserAcc: boolean = true;
+  ifUserAcc: boolean = false;
   userImg: string = '../../assets/img/person.svg';
   userFullName: string = 'Sofia Müller';
   userEmail: string = 'email@gmail.com';
   mobileView: boolean = false;
   windowWidth: number = 0;
   constructor(
+    public dialog: MatDialog,
     private el: ElementRef,
     private renderer: Renderer2,
     public dialogRef: MatDialogRef<ProfileViewComponent>
@@ -27,6 +33,14 @@ export class ProfileViewComponent {
 
   ngOnInit(): void {
     this.checkWindowSize();
+
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+      const newUser = JSON.parse(user);
+      this.userFullName = newUser.fullName;
+      this.userEmail = newUser.email;
+      this.ifUserAcc = true;
+    }
   }
 
   @HostListener('window:resize', ['$event'])
@@ -54,7 +68,8 @@ export class ProfileViewComponent {
     this.dialogRef.close();
   }
 
-  editAccount() {
+  editAccount(event: any) {
     this.onNoClick();
+    this.dialog.open(ProfileEditComponent);
   }
 }

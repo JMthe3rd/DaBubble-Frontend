@@ -13,10 +13,10 @@
       <div class="user-info">
         <p>{{ userFullName }}</p>
         <ng-container *ngIf="ifUserAcc">
-          <a (click)="editAccount()" *ngIf="!mobileView" routerLink=""
+          <a (click)="editAccount($event)" *ngIf="!mobileView" routerLink=""
             >Bearbeiten</a
           >
-          <a (click)="editAccount()" *ngIf="mobileView" routerLink=""
+          <a (click)="editAccount($event)" *ngIf="mobileView" routerLink=""
             ><mat-icon>edit</mat-icon></a
           >
         </ng-container>
@@ -48,12 +48,3 @@
     <button><mat-icon>mode_comment</mat-icon> Nachricht</button>
   </mat-card-actions>
 </mat-card>
-
-<!-- <button
-class="close-dialog"
-mat-raised-button
-color="warn"
-(click)="onNoClick()"
->
-Cancel
-</button> -->
