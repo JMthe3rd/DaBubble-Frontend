@@ -27,8 +27,7 @@
   flex-direction: column;
 
   .impressum-container {
-    width: 50rem;
-    height: 50rem;
+    width: 40rem;
     @include flex-direction-column();
     align-items: center;
 
@@ -42,6 +41,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      margin-top: 3rem;
 
       .impressum-img {
         width: 2.8rem;
