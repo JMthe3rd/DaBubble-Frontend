@@ -1,6 +1,6 @@
 <div class="main">
     <div class="workspace-wrapper">
-
+        <app-workspace-header></app-workspace-header>
         <div class="drawer-container">
 
             <div class="drawer">
@@ -13,9 +13,9 @@
                         <img src="./../../assets/img/workspaces_0_channels.svg" alt="channels"
                             [class.invert]="!showChannels">
 
-                        <h1 [class.color-effect]="!showChannels">
+                        <h2 [class.color-effect]="!showChannels">
                             Channels
-                        </h1>
+                        </h2>
                     </span>
                     <button routerLink="/"><img src="./../../assets/img/add.svg" alt="adding channel"></button>
                 </div>
@@ -38,7 +38,7 @@
                     <img [class.rotate]="!showDMs" src="./../../assets/img/arrow_drop_down.svg" alt="drop down">
                     <span (click)="showDMs = !showDMs">
                         <img src="./../../assets/img/workspaces_1_DM.svg" alt="account circle">
-                        <h1 [class.color-effect]="!showDMs">Direktnachrichten</h1>
+                        <h2 [class.color-effect]="!showDMs">Direktnachrichten</h2>
                     </span>
                 </div>
 
@@ -53,7 +53,6 @@
             }
         </div>
         <button class="btn-write-dm"><img src="./../../assets/img/workspace_2_mobile_write_dm_square.svg" alt="write message"></button>
-        <!-- <button class="btn-write-dm"><img src="./../../assets/img/workspace_2_mobile_write_dm.svg" alt="write message"></button> -->
 
     </div>
 </div>
