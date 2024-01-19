@@ -12,7 +12,7 @@ body {
     @include flexbox(flex, unset, center, center);
 }
 
-h1 {
+h2 {
 
     &:hover {
         cursor: pointer;
@@ -37,6 +37,11 @@ h1 {
     align-self: center;
     padding: 2rem 2rem 2rem 2rem;
     position: relative;
+
+    @media only screen and (min-width: 1100px) {
+        border-radius: 30px;
+        max-width: 50rem;
+    }
 }
 
 .drawer-container {
