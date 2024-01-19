@@ -1,28 +1,52 @@
 import { ChannelListItemComponent } from './../channel-list-item/channel-list-item.component';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { DirectMessageListItemComponent } from "./../direct-message-list-item/direct-message-list-item.component";
 import { Router, RouterModule } from "@angular/router";
+import { WorkspaceHeaderComponent } from "../workspace-header/workspace-header.component";
 
 @Component({
   selector: 'app-workspace',
   standalone: true,
+  templateUrl: './workspace.component.html',
+  styleUrl: './workspace.component.scss',
   imports: [
     ChannelListItemComponent,
     CommonModule,
     DirectMessageListItemComponent,
-    RouterModule
-  ],
-  templateUrl: './workspace.component.html',
-  styleUrl: './workspace.component.scss'
+    RouterModule,
+    WorkspaceHeaderComponent
+  ]
 })
 export class WorkspaceComponent implements OnInit {
   showChannels: boolean = false;
   showDMs: boolean = true;
-  constructor(
-    private router: Router
-  ) { }
+  renderer!: Renderer2;
+  screenWidth!: number;
+  imageFlag!: string;
 
+  constructor(
+    private router: Router,
+    renderer: Renderer2,) {
+    this.screenWidth = window.innerWidth;
+    // ###### is this best practice here? ####
+    this.checkImageFlag();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.screenWidth = window.innerWidth;
+    // ###### i put the logic here, but there must be a slimmer way######
+    this.checkImageFlag();
+  }
+
+  checkImageFlag(){
+    if (this.screenWidth <= 1100 ) {
+      this.imageFlag = 'mobile';      
+    } else {
+      this.imageFlag = 'desktop';      
+    }
+  }
 
 
   // ########DUMMY#################DUMMY#################DUMMY######### ########DUMMY################
@@ -35,7 +59,7 @@ export class WorkspaceComponent implements OnInit {
     lastName: string;
     email: string;
     birthDate: number;
-    bio: string; 
+    bio: string;
     profile_pic: number;
     channels: Array<{ name: string }>,
     directMessages: Array<any>
@@ -111,7 +135,7 @@ export class WorkspaceComponent implements OnInit {
             { sender: "Emma Smith", message: "Hey, how's your day going?", receiver: this.user, timestamp: "2024-01-18T13:00:00" },
             { sender: this.user, message: "It's going great, thanks!", receiver: "Emma Smith", timestamp: "2024-01-18T13:05:00" }
           ]
-        },        
+        },
         {
           withUser: {
             firstName: "Aisha",
@@ -122,7 +146,7 @@ export class WorkspaceComponent implements OnInit {
             { sender: "Aisha Patel", message: "Hi, how are you?", receiver: this.user, timestamp: "2024-01-18T09:00:00" },
             { sender: this.user, message: "I'm doing well, thanks!", receiver: "Aisha Patel", timestamp: "2024-01-18T09:05:00" }
           ]
-        },        
+        },
         {
           withUser: {
             firstName: "Alex",
