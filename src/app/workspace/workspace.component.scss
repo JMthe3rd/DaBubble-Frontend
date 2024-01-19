@@ -53,6 +53,8 @@ h1 {
         &.fixed {
             position: fixed;
             background-color: white;
+            min-width: 24rem;
+            width: unset;
         }
     }
 
