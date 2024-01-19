@@ -1,6 +1,12 @@
 @import "../colors.scss";
 @import "../mixins.scss";
 
+@media only screen and (max-width: 1100px) {
+  .legalContentContainer {
+    display: none !important;
+  }
+}
+
 @media only screen and (min-width: 1100px) {
   .select-avatar-container {
     width: 60.6rem !important;
@@ -236,6 +242,11 @@
     color: $purple-2;
     font-family: Figtree;
     @include fonts-styles(1.8rem, 400);
+
+    &:hover {
+      border-radius: 2.5rem;
+      border: 0.5px solid $purple-2;
+    }
   }
 }
 
