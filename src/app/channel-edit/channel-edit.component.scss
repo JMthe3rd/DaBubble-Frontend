@@ -1,0 +1,152 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+
+::ng-deep .mat-mdc-dialog-container,
+::ng-deep .mdc-dialog__surface {
+  border-radius: 3rem !important;
+  border-top-left-radius: 0rem !important;
+}
+
+#channel-edition {
+  width: 87.2rem;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  .channel-edition-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 !important;
+
+    .channel-edition-name {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .channel-edition-img-tag {
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+      }
+
+      mat-card-title {
+        @include fonts-styles(2.4rem, 700);
+        line-height: normal;
+      }
+    }
+
+    .channel-edition-img-close {
+      width: 4rem;
+      height: 4rem;
+      padding: 0.8rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $purple-3;
+        border-radius: 2rem;
+        background: $bg-color;
+      }
+    }
+  }
+
+  mat-card-content {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 2rem;
+    border: 0.1rem solid $light-purple-lines;
+
+    .channel-edition-name {
+      width: 100%;
+
+      .channel-edition-name-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          @include fonts-styles(1.8rem, 700);
+          line-height: normal;
+        }
+
+        a {
+          color: $purple-3;
+          @include fonts-styles(1.8rem, 600);
+          line-height: normal;
+          cursor: pointer;
+
+          &:hover {
+            color: $purple-1;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .channel-edition-name-tag {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        gap: 1rem;
+
+        p {
+          @include fonts-styles(1.8rem, 400);
+          line-height: normal;
+        }
+      }
+    }
+  }
+
+  .channel-edition-input-main-container {
+    width: 100%;
+
+    .channel-edition-input-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+
+      p {
+        @include fonts-styles(1.8rem, 700);
+        line-height: normal;
+        margin-left: 0.5rem;
+      }
+
+      a {
+        color: $purple-3;
+        @include fonts-styles(1.8rem, 600);
+        line-height: normal;
+        cursor: pointer;
+
+        &:hover {
+          color: $purple-1;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .channel-edition-input-header {
+      width: 100%;
+      padding: 1.8rem 2rem;
+      display: flex;
+      border-radius: 4rem;
+      border: 0.1rem solid $light-purple-lines;
+      gap: 1.5rem;
+
+      .channel-edition-input {
+        width: 100%;
+        @include fonts-styles(1.8rem, 400);
+        line-height: normal;
+      }
+    }
+  }
+}

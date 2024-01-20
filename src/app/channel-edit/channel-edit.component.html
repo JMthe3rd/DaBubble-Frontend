@@ -1,0 +1,55 @@
+<mat-card id="channel-edition">
+  <mat-card-header class="channel-edition-header">
+    <div class="channel-edition-name">
+      <mat-icon class="channel-edition-img-tag">tag</mat-icon>
+      <mat-card-title>{{ channelNameCopy }}</mat-card-title>
+    </div>
+    <mat-icon class="channel-edition-img-close" (click)="onNoClick()"
+      >close</mat-icon
+    >
+  </mat-card-header>
+
+  <ng-container *ngIf="channelEditShow">
+    <mat-card-content>
+      <div class="channel-edition-name">
+        <div class="channel-edition-name-header">
+          <p>Channel-Name</p>
+          <a (click)="editName()">Bearbeiten</a>
+        </div>
+
+        <div class="channel-edition-name-tag">
+          <mat-icon class="channel-edition-img-tag">tag</mat-icon>
+          <p>{{ channelName }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </ng-container>
+
+  <ng-container *ngIf="!channelEditShow">
+    <div class="channel-edition-input-main-container">
+      <div class="channel-edition-input-container">
+        <p>Channel-Name</p>
+        <a (click)="editName()">Speichern</a>
+      </div>
+      <div class="channel-edition-input-header">
+        <mat-icon class="channel-edition-img-tag">tag</mat-icon>
+        <input
+          [(ngModel)]="channelName"
+          #inputField
+          autofocus
+          name="name"
+          required
+          class="channel-edition-input"
+          placeholder="{{ channelName }}"
+        />
+      </div>
+    </div>
+  </ng-container>
+
+  <mat-card-actions>
+    <button *ngIf="ifUserCreate" class="abort" (click)="channelDelete()">
+      Channel verlassen
+    </button>
+    <button class="abort" (click)="leaveChannel()">Channel verlassen</button>
+  </mat-card-actions>
+</mat-card>
