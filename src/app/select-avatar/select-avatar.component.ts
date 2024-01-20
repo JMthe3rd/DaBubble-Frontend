@@ -29,6 +29,7 @@ export class SelectAvatarComponent {
   windowWidth: number = 0;
   isGerman: boolean = false;
   spinnerActive: boolean = false;
+  imgSelected: boolean = false;
   avatars = [
     '../../assets/img/avatar1.svg',
     '../../assets/img/avatar2.svg',
@@ -76,6 +77,7 @@ export class SelectAvatarComponent {
   }
 
   imageClicked(index: number) {
+    this.imgSelected = true;
     this.personImg = this.avatars[index];
     let avatar = this.personImg.split('../../assets/img/')[1];
     if (this.user) {

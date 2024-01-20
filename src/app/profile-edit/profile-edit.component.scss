@@ -146,6 +146,10 @@
       @include fonts-styles(1.8rem, 700);
       line-height: normal;
 
+      &:hover {
+        background: $purple-2;
+      }
+
       mat-icon {
         color: $white;
       }
@@ -164,6 +168,12 @@
       text-align: center;
       @include fonts-styles(1.8rem, 700);
       line-height: normal;
+      transition: all 125ms ease-in-out;
+
+      &:hover {
+        background: $purple-1;
+        color: $white;
+      }
     }
   }
 }

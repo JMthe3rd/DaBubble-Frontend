@@ -254,3 +254,11 @@
   width: 13rem !important;
   height: 13rem !important;
 }
+
+.active {
+  background-color: $text-gray !important;
+}
+
+.bcg:hover {
+  background-color: $purple-2 !important;
+}

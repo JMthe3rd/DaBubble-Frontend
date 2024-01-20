@@ -64,12 +64,26 @@
           />
           <p>
             Ich stimme der
-            <a routerLink="/privacy-policy">Datenschutzerklärung</a> zu.
+            <a
+              [ngStyle]="{
+                'background-color': isHovered ? hoveredColor : defaultColor,
+                'border-radius': isHovered ? '1rem' : '0rem',
+                padding: isHovered ? '0.5rem' : '0rem'
+              }"
+              (mouseover)="setHover(true)"
+              (mouseout)="setHover(false)"
+              routerLink="/privacy-policy"
+              >Datenschutzerklärung</a
+            >
+            zu.
           </p>
         </div>
 
         <button
-          [ngClass]="{ active: !isFormValid() }"
+          [ngClass]="{
+            bcg: isFormValid(),
+            active: !isFormValid()
+          }"
           [disabled]="!isFormValid()"
           (click)="navigateAndSendUser()"
           class="sign-up-content-form-btn"

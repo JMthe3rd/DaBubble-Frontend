@@ -112,6 +112,10 @@
           @include fonts-styles(1.8rem, 600);
           line-height: normal;
           cursor: pointer;
+
+          &:hover {
+            color: $purple-1;
+          }
         }
       }
 
