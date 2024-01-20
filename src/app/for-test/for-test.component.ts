@@ -8,9 +8,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
+import { ChannelEditComponent } from '../channel-edit/channel-edit.component';
 
 @Component({
-  selector: 'app-test-user-profil',
+  selector: 'app-for-test',
   standalone: true,
   imports: [
     MatIconModule,
@@ -21,13 +22,17 @@ import { ProfileViewComponent } from '../profile-view/profile-view.component';
     CommonModule,
     RouterLink,
   ],
-  templateUrl: './test-user-profil.component.html',
-  styleUrl: './test-user-profil.component.scss',
+  templateUrl: './for-test.component.html',
+  styleUrl: './for-test.component.scss',
 })
-export class TestUserProfilComponent {
+export class ForTestComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog() {
     this.dialog.open(ProfileViewComponent);
+  }
+
+  openChannelDialog() {
+    this.dialog.open(ChannelEditComponent);
   }
 }
