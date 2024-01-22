@@ -33,6 +33,8 @@ export class ForTestComponent {
   }
 
   openChannelDialog() {
-    this.dialog.open(ChannelEditComponent);
+    this.dialog.open(ChannelEditComponent, {
+      autoFocus: false,
+    });
   }
 }
