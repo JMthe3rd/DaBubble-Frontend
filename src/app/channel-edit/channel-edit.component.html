@@ -9,12 +9,13 @@
     >
   </mat-card-header>
 
-  <ng-container *ngIf="channelEditShow">
+  <ng-container *ngIf="channelNameToggle">
     <mat-card-content>
       <div class="channel-edition-name">
         <div class="channel-edition-name-header">
           <p>Channel-Name</p>
-          <a (click)="editName()">Bearbeiten</a>
+          <a *ngIf="!ifMobileView" (click)="editName()">Bearbeiten</a>
+          <mat-icon class="icon" *ngIf="ifMobileView" (click)="editName()">edit</mat-icon>
         </div>
 
         <div class="channel-edition-name-tag">
@@ -25,17 +26,23 @@
     </mat-card-content>
   </ng-container>
 
-  <ng-container *ngIf="!channelEditShow">
-    <div class="channel-edition-input-main-container">
+  <ng-container *ngIf="!channelNameToggle">
+    <div class="channel-edition-input-main-container first-container">
       <div class="channel-edition-input-container">
         <p>Channel-Name</p>
-        <a (click)="editName()">Speichern</a>
+        <a *ngIf="!ifMobileView" (click)="saveName()">Speichern</a>
+        <mat-icon class="icon" *ngIf="ifMobileView" (click)="saveName()"
+          >check_circle</mat-icon
+        >
       </div>
-      <div class="channel-edition-input-header">
+      <div
+        [ngClass]="{ 'on-focus': channelNameOnFocus }"
+        class="channel-edition-input-header"
+      >
         <mat-icon class="channel-edition-img-tag">tag</mat-icon>
         <input
+          #channelNameInput
           [(ngModel)]="channelName"
-          #inputField
           autofocus
           name="name"
           required
@@ -46,10 +53,134 @@
     </div>
   </ng-container>
 
+  <div
+    [ngClass]="{ 'description-toggle': channelDescriptionToggle }"
+    class="channel-edition-description-main-container"
+  >
+    <ng-container *ngIf="channelDescriptionToggle">
+      <div class="channel-edition-description-container">
+        <div class="description-header">
+          <p>Beschreibung</p>
+          <a *ngIf="!ifMobileView" (click)="editDescription()">Bearbeiten</a>
+          <mat-icon class="icon" *ngIf="ifMobileView" (click)="editDescription()"
+            >edit</mat-icon
+          >
+        </div>
+
+        <div class="description-content">
+          <p>{{ channelDescription }}</p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!channelDescriptionToggle">
+      <div class="channel-edition-input-main-container">
+        <div class="channel-edition-input-container">
+          <p>Beschreibung</p>
+          <a *ngIf="!ifMobileView" (click)="saveDescription()">Speichern</a>
+          <mat-icon class="icon" *ngIf="ifMobileView" (click)="saveDescription()"
+            >check_circle</mat-icon
+          >
+        </div>
+        <div
+          [ngClass]="{ 'on-focus': channelDescriptionOnFocus }"
+          class="channel-edition-input-header"
+        >
+          <input
+            #channelDescriptionInput
+            [(ngModel)]="channelDescription"
+            autofocus
+            name="name"
+            required
+            class="channel-edition-input"
+            placeholder="{{ channelDescription }}"
+          />
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="channel-divider"></div>
+
+    <div class="channel-created-by">
+      <div class="created-by-header">
+        <p>Erstellt von</p>
+      </div>
+
+      <div class="created-by-name">
+        <p>{{ createdBy }}</p>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="ifMobileView">
+    <div class="channel-users">
+      <div class="channel-users-header">
+        <p>Mitglieder</p>
+      </div>
+
+      <div class="channel-users-container">
+        <div class="user">
+          <div class="user-img-container">
+            <img src="{{ user.img }}" alt="User image" />
+            <mat-icon
+              [ngClass]="{
+                userActive: user.isOnline,
+                userOffline: !user.isOnline
+              }"
+              class="user-active"
+              >circle</mat-icon
+            >
+          </div>
+
+          <div class="user-name">
+            <p>{{ user.fullName }} (Du)</p>
+          </div>
+        </div>
+
+        <div
+          *ngFor="let user of users; let i = index"
+          class="user"
+          [attr.id]="'user-' + i"
+        >
+          <div class="user-img-container">
+            <img src="{{ user.img }}" alt="User image" />
+            <mat-icon
+              [ngClass]="{
+                userActive: user.isOnline,
+                userOffline: !user.isOnline
+              }"
+              class="user-active"
+              >circle</mat-icon
+            >
+          </div>
+
+          <div class="user-name">
+            <p>{{ user.fullName }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-user">
+        <div class="add-user-img-container">
+          <mat-icon class="add-user-img">person_add</mat-icon>
+        </div>
+
+        <div class="add-user-txt">
+          <p>Mitglieder hinzufügen</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
   <mat-card-actions>
-    <button *ngIf="ifUserCreate" class="abort" (click)="channelDelete()">
+    <button
+      *ngIf="ifUserCreateChannel"
+      class="channel-delete"
+      (click)="channelDelete()"
+    >
+      Channel löschen
+    </button>
+    <button class="channel-exit" (click)="leaveChannel()">
       Channel verlassen
     </button>
-    <button class="abort" (click)="leaveChannel()">Channel verlassen</button>
   </mat-card-actions>
 </mat-card>
