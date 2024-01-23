@@ -1,6 +1,6 @@
 import { ChannelListItemComponent } from './../channel-list-item/channel-list-item.component';
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Component, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 import { DirectMessageListItemComponent } from "./../direct-message-list-item/direct-message-list-item.component";
 import { Router, RouterModule } from "@angular/router";
 import { WorkspaceHeaderComponent } from "../workspace-header/workspace-header.component";
@@ -24,6 +24,7 @@ export class WorkspaceComponent implements OnInit {
   renderer!: Renderer2;
   screenWidth!: number;
   imageFlag!: string;
+  @Input() isOpen: boolean = true;
 
   constructor(
     private router: Router,
@@ -49,8 +50,8 @@ export class WorkspaceComponent implements OnInit {
   }
 
 
-  // ########DUMMY#################DUMMY#################DUMMY######### ########DUMMY################
-  // ########DUMMY#################DUMMY#################DUMMY######### ########DUMMY################
+  // ########DUMMY#################DUMMY#################DUMMY######### ########DATA################
+  // ########DUMMY#################DUMMY#################DUMMY######### ########DATA################
 
   user!: {
     userName: string;
