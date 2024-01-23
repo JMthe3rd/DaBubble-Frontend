@@ -1,0 +1,19 @@
+@import "../../../../colors.scss";
+@import "../../../../mixins.scss";
+
+.links-2-dm{
+    margin-left: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: transparent;
+    padding: 1rem 0 1rem 0;
+
+    a {
+        @include fonts-styles(17px, 400);
+        color: black;
+        &.link-create{
+            color: $purple-3;
+        }
+    }
+}

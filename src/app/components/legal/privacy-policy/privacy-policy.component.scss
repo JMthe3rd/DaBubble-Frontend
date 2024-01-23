@@ -1,0 +1,69 @@
+@import "./../../../colors.scss";
+@import "./../../../mixins.scss";
+
+
+@media only screen and (min-width: 1100px) {
+  .privacy-policy-container {
+    width: 60.6rem !important;
+    flex-direction: row !important;
+
+    app-logo {
+      position: absolute !important;
+      top: 7.5rem;
+      left: 7.5rem;
+      z-index: 2;
+    }
+
+    .privacy-policy-content {
+      height: 45rem !important;
+    }
+  }
+}
+
+#privacy-policy-main-container {
+  width: 100%;
+  height: 100vh;
+  @include flex-center();
+  flex-direction: column;
+
+  .privacy-policy-container {
+    width: 50rem;
+    @include flex-direction-column();
+    align-items: center;
+
+    .privacy-policy-content {
+      width: 100%;
+      padding: 3rem;
+      border-radius: 1.875rem;
+      background: $white;
+      box-shadow: $box-shadow;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .privacy-policy-img {
+        width: 2.8rem;
+        height: 2.8rem;
+        position: absolute;
+        top: 3rem;
+        left: 3rem;
+      }
+
+      h2 {
+        margin-top: 2rem;
+        font-size: 4.6rem;
+        color: $purple-1;
+      }
+
+      h3 {
+        font-size: 3.2rem;
+        color: $purple-1;
+      }
+
+      p {
+        margin-top: 1rem;
+        font-size: 2rem;
+      }
+    }
+  }
+}

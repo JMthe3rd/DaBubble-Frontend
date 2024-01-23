@@ -7,8 +7,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
-import { ProfileViewComponent } from '../profile-view/profile-view.component';
-import { ChannelEditComponent } from '../channel-edit/channel-edit.component';
+import { ProfileViewComponent } from '../components/profile/profile-view/profile-view.component';
+import { ChannelEditComponent } from '../components/chat/channel/channel-edit/channel-edit.component';
 
 @Component({
   selector: 'app-for-test',
