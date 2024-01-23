@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, Form, FormControl, ValidationErrors } from '@angular/forms';
+import {Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
 import { InputComponent } from "../input/input.component";
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';

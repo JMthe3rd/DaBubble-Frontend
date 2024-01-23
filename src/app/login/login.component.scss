@@ -54,32 +54,29 @@
     margin-top: 2rem;
     position: absolute;
     bottom: 7.5rem;
-    visibility: hidden;
     opacity: 0;
-    animation: showUp 500ms ease-in;
-
+    @include animation(showLoginContainer, 0.5s, 2.4s, 1);
 
     .impressum,
     .privacy-policy {
       padding: 10px 15px;
-      color: rgba(121, 126, 243, 0.7);
+      color: $purple-2;
       font-family: Figtree;
       @include fonts-styles(1.8rem, 400);
     }
 
     a {
-      transition: border-radius 225ms ease-in-out, border 225ms ease-in-out, color 225ms ease-in-out;
+      transition: border-radius 225ms ease-in-out, border 225ms ease-in-out,
+        color 225ms ease-in-out;
       border-radius: 2.5rem;
 
       &:hover {
         border-radius: 2.5rem;
         border: 0.5px solid $purple-2;
-        color: rgba(121, 126, 243, 1);
       }
     }
   }
 }
-
 
 @media only screen and (min-width: 1100px) and (min-height: 800px) {
   .card-content {
@@ -87,29 +84,33 @@
   }
 
   .legalContentContainer {
-    bottom: 0;
-    visibility: hidden;
+    bottom: 2rem;
     opacity: 0;
-    animation: showUp 5s ease-in forwards;
+    @include animation(showLoginContainer, 0.5s, 2.4s, 1);
   }
 }
 
 @keyframes showUp {
-  from {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  to {
-    visibility: visible;
-    opacity: 1;
+  100% {
+    opacity: 1 !important;
   }
 }
 
 @media only screen and (max-width: 1099px) {
-
   .legalContentContainer {
     display: none;
+  }
+
+  .card-content {
+    h1 {
+      font-size: 3.2rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    span {
+      font-size: 1.7rem !important;
+      margin-bottom: 1.5rem !important;
+    }
   }
 }
 
@@ -291,6 +292,15 @@ h1 {
     @include flex-center;
     width: 37rem;
     border-radius: 1.875rem;
+
+    h1 {
+      color: $purple-1;
+      @include fonts-styles(4.6rem, 700);
+    }
+
+    span {
+      @include fonts-styles(2rem, 400);
+    }
   }
 
   .login-form {

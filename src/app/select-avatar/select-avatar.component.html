@@ -55,7 +55,17 @@
         </div>
       </div>
 
-      <button (click)="registerUser()" class="select-avatar-btn">Weiter</button>
+      <button
+        [ngClass]="{
+          bcg: imgSelected,
+          active: !imgSelected
+        }"
+        [disabled]="!imgSelected"
+        (click)="registerUser()"
+        class="select-avatar-btn"
+      >
+        Weiter
+      </button>
     </mat-card>
   </div>
   <div class="legalContentContainer">

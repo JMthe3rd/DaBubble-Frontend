@@ -2,11 +2,11 @@
 @import "../mixins.scss";
 
 @media only screen and (max-width: 1100px) {
-  #profile-view-card {
+  #profile-edit-card {
     padding: 4rem 2rem !important;
   }
 
-  .profile-view-card-header {
+  .profile-edit-card-header {
     width: 35.8rem !important;
   }
 
@@ -16,7 +16,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .profile-view-card-header {
+  .profile-edit-card-header {
     width: 30rem !important;
   }
 
@@ -26,7 +26,7 @@
 }
 
 @media only screen and (max-width: 430px) {
-  .profile-view-card-header {
+  .profile-edit-card-header {
     width: 25rem !important;
   }
 
@@ -44,14 +44,14 @@
   padding: 0;
 }
 
-#profile-view-card {
+#profile-edit-card {
   padding: 4rem;
   flex-direction: column;
   align-items: center;
   gap: 4.5rem;
   overflow: hidden !important;
 
-  .profile-view-card-header {
+  .profile-edit-card-header {
     width: 42rem;
     display: flex;
     justify-content: space-between;
@@ -71,7 +71,7 @@
 
       &:hover {
         color: $purple-3;
-        border-radius: 2rem;
+        border-radius: 20px;
         background: $bg-color;
       }
     }
@@ -97,59 +97,26 @@
 
       .user-info {
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
 
-        p {
-          @include fonts-styles(3.2rem, 700);
-          line-height: normal;
+        .user-full-name {
+          gap: 0.7rem;
         }
 
-        a {
-          color: $purple-3;
-          @include fonts-styles(1.8rem, 600);
-          line-height: normal;
-          cursor: pointer;
-
-          &:hover {
-            color: $purple-1;
-          }
-        }
-      }
-
-      .user-active {
-        display: flex;
-
-        p {
-          @include fonts-styles(2rem, 400);
-          line-height: normal;
-          margin-left: 1.5rem;
-        }
-
-        .online,
-        .userActive {
-          color: $online-green;
-        }
-
-        .offline,
-        .userOffline {
-          color: $text-gray;
+        .user-email {
+          gap: 0.7rem;
+          margin-top: 1.6rem;
         }
       }
     }
-  }
 
-  mat-card-footer {
-    width: 100%;
-
-    .footer-email {
+    .user-full-name-header,
+    .user-email-header {
       display: flex;
       align-items: center;
+      gap: 2rem;
 
       mat-icon {
-        color: $purple-1;
+        color: $purple-3;
         width: 3rem;
         height: 3rem;
         @include flex-center();
@@ -157,18 +124,6 @@
 
       p {
         @include fonts-styles(2rem, 700);
-        line-height: normal;
-        margin-left: 2rem;
-      }
-    }
-
-    .footer-user-email {
-      margin-left: 5rem;
-      margin-top: 1.8rem;
-
-      p {
-        color: #1381ff;
-        @include fonts-styles(1.8rem, 400);
         line-height: normal;
       }
     }
@@ -191,14 +146,34 @@
       @include fonts-styles(1.8rem, 700);
       line-height: normal;
 
+      &:hover {
+        background: $purple-2;
+      }
+
       mat-icon {
         color: $white;
       }
     }
   }
-}
 
-.message {
-  display: none !important;
-  background-color: aqua;
+  mat-card-actions {
+    gap: 3.2rem;
+
+    .abort {
+      border-radius: 5rem;
+      border: 1px solid $purple-2;
+      background-color: $white;
+
+      color: $purple-1;
+      text-align: center;
+      @include fonts-styles(1.8rem, 700);
+      line-height: normal;
+      transition: all 125ms ease-in-out;
+
+      &:hover {
+        background: $purple-1;
+        color: $white;
+      }
+    }
+  }
 }

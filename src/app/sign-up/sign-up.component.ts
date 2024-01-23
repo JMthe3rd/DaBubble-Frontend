@@ -48,6 +48,11 @@ export class SignUpComponent {
   emailValid: boolean = false;
   passwordValid: boolean = false;
 
+  isHovered = false;
+  defaultColor = '';
+  hoveredColor = '#eceefe';
+  btnHoverColor = '#797ef3';
+
   user: User = new User({});
 
   constructor(
@@ -56,6 +61,10 @@ export class SignUpComponent {
     private renderer: Renderer2,
     private el: ElementRef
   ) {}
+
+  setHover(value: boolean): void {
+    this.isHovered = value;
+  }
 
   ngOnInit(): void {
     this.checkWindowSize();

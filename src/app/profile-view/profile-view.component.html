@@ -1,1 +1,50 @@
-<p>profile-view works!</p>
+<mat-card id="profile-view-card">
+  <mat-card-header class="profile-view-card-header">
+    <mat-card-title>Profil</mat-card-title>
+    <mat-icon (click)="onNoClick()">close</mat-icon>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="content-img">
+      <img mat-card-image [src]="userImg" />
+    </div>
+
+    <div class="content-user-info">
+      <div class="user-info">
+        <p>{{ userFullName }}</p>
+        <ng-container *ngIf="ifUserAcc">
+          <a (click)="editAccount($event)" *ngIf="!mobileView" routerLink=""
+            >Bearbeiten</a
+          >
+          <a (click)="editAccount($event)" *ngIf="mobileView" routerLink=""
+            ><mat-icon>edit</mat-icon></a
+          >
+        </ng-container>
+      </div>
+
+      <div class="user-active">
+        <mat-icon [ngClass]="{ online: isActiveUser, offline: !isActiveUser }"
+          >circle</mat-icon
+        >
+        <p [ngClass]="{ userActive: isActiveUser, userOffline: !isActiveUser }">
+          {{ isActiveUser ? "Aktiv" : "Abwesend" }}
+        </p>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-footer>
+    <div class="footer-email">
+      <mat-icon>mail</mat-icon>
+      <p>E-Mail-Adresse</p>
+    </div>
+
+    <div class="footer-user-email">
+      <p>{{ userEmail }}</p>
+    </div>
+  </mat-card-footer>
+
+  <mat-card-actions [ngClass]="{ message: ifUserAcc }">
+    <button><mat-icon>mode_comment</mat-icon> Nachricht</button>
+  </mat-card-actions>
+</mat-card>

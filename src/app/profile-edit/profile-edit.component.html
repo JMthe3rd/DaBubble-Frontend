@@ -1,0 +1,59 @@
+<mat-card id="profile-edit-card">
+  <mat-card-header class="profile-edit-card-header">
+    <mat-card-title>Dein Profil bearbeiten</mat-card-title>
+    <mat-icon (click)="onNoClick()">close</mat-icon>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="content-img">
+      <img mat-card-image [src]="userImg" />
+    </div>
+
+    <div class="content-user-info">
+      <div class="user-info">
+        <div class="user-full-name">
+          <div class="user-full-name-header">
+            <mat-icon>account_circle</mat-icon>
+            <p>Vollständiger Name</p>
+          </div>
+
+          <div class="user-full-name-input">
+            <app-input
+              [(ngModel)]="userFullName"
+              name="fullName"
+              ngDefaultControl
+              pattern="^[A-Za-z]+ [A-Za-z]+$"
+              inputType="text"
+              [placeholder]="userFullName"
+              (validityChanged)="onValidityChanged('name', $event)"
+            ></app-input>
+          </div>
+        </div>
+
+        <div class="user-email">
+          <div class="user-email-header">
+            <mat-icon>mail</mat-icon>
+            <p>E-Mail-Adresse</p>
+          </div>
+
+          <div class="email-input">
+            <app-input
+              [(ngModel)]="userEmail"
+              name="email"
+              ngDefaultControl
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              inputType="email"
+              [placeholder]="userEmail"
+              (validityChanged)="onValidityChanged('email', $event)"
+            ></app-input>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button class="abort"(click)="onNoClick()">Abbrechen</button>
+    <button class="save" (click)="saveUser()">Speichern</button>
+  </mat-card-actions>
+</mat-card>
