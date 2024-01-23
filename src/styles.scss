@@ -53,3 +53,19 @@ a {
 .text-center {
   text-align: center;
 }
+
+.scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: white;
+  // border: 1px solid #cacaca;
+  // box-shadow: inset 0 0 2px rgba(0, 0, 0, .1);
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: $text-gray;
+}

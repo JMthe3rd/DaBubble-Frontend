@@ -1,0 +1,57 @@
+<div *ngIf="isOpen" class="main">
+    <div class="workspace-wrapper">
+        <app-workspace-header></app-workspace-header>
+        <div class="drawer-container">
+            <div class="drawer">
+                <div class="drawer-header" (click)="showChannels = !showChannels">
+                    <img [class.rotate]="!showChannels"
+                        src="./../../assets/img/arrow_drop_down.svg" alt="drop down" [class.invert]="!showChannels">
+                    <span>
+                        <img src="./../../assets/img/workspaces_0_channels.svg" alt="channels"
+                            [class.invert]="!showChannels">
+                        <h2 [class.color-effect]="!showChannels">
+                            Channels
+                        </h2>
+                    </span>
+                    <button routerLink="/"><img src='{{ "./../../assets/img/add_" + imageFlag + ".svg"}}'
+                            alt="adding channel"></button>
+                </div>
+
+                @if (showChannels) {
+                <ng-container *ngFor="let channel of user.channels">
+                    <app-channel-list-item [channels]="channel"></app-channel-list-item></ng-container>
+                <button class="btn-create-channel">
+                    <img src="./../../assets/img/add_border.svg" alt="add">
+                    <a class="link-create">Channel hinzufügen</a></button>
+                }
+            </div>
+        </div>
+
+        <div class="drawer-container scroll">
+            <div class="drawer fixed">
+                <div class="drawer-header" (click)="showDMs = !showDMs">
+                    <img [class.rotate]="!showDMs" src="./../../assets/img/arrow_drop_down.svg" alt="drop down">
+                    <span>
+                        <img src="./../../assets/img/workspaces_1_DM.svg" alt="account circle">
+                        <h2 [class.color-effect]="!showDMs">Direktnachrichten</h2>
+                    </span>
+                </div>
+
+            </div>
+
+            @if (showDMs) {
+            <div class="dm-list-container">
+                <ng-container *ngFor="let dm of user.directMessages">
+                    <app-direct-message-list-item [directMessages]="dm"></app-direct-message-list-item>
+                </ng-container>
+            </div>
+            }
+        </div>
+
+        <button class="btn-write-dm">
+            <img src="./../../assets/img/workspace_2_mobile_write_dm_square.svg" alt="write message">
+        </button>
+
+    </div>
+
+</div>

@@ -23,3 +23,10 @@
   animation-iteration-count: $counting;
   transition: all $delay ease-in-out;
 }
+
+@mixin flexbox($display,$fdir, $jc, $ai) { //not adding gap, because needs to be changed a lot due to resizing/mobile design
+  display: $display;
+  flex-direction: $fdir;
+  justify-content: $jc;
+  align-items: $ai;
+}
