@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { SelectAvatarComponent } from './select-avatar/select-avatar.component';
-import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
-import { LoginComponent } from './login/login.component';
-import { ImpressumComponent } from './impressum/impressum.component';
-import { SendMailPwComponent } from './send-mail-pw/send-mail-pw.component';
-import { ResetPwComponent } from './reset-pw/reset-pw.component';
-import { WorkspaceComponent } from './workspace/workspace.component';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { SelectAvatarComponent } from './components/auth/select-avatar/select-avatar.component';
+import { PrivacyPolicyComponent } from './components/legal/privacy-policy/privacy-policy.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { ImpressumComponent } from './components/legal/impressum/impressum.component';
+import { SendMailPwComponent } from './components/auth/send-mail-pw/send-mail-pw.component';
+import { ResetPwComponent } from './components/auth/reset-pw/reset-pw.component';
+import { WorkspaceComponent } from './components/dashboard/workspace/workspace.component';
 import { ForTestComponent } from './for-test/for-test.component';
 
 export const routes: Routes = [
