@@ -1,5 +1,5 @@
-@import "../colors.scss";
-@import "../mixins.scss";
+@import "./../../../colors.scss";
+@import "./../../../mixins.scss";
 
 .ws-header-container {
     @include flexbox (flex, unset, unset, center);

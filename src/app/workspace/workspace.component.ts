@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 import { DirectMessageListItemComponent } from "./../direct-message-list-item/direct-message-list-item.component";
 import { Router, RouterModule } from "@angular/router";
-import { WorkspaceHeaderComponent } from "../workspace-header/workspace-header.component";
+import { WorkspaceHeaderComponent } from "./components/workspace-header/workspace-header.component";
 
 @Component({
   selector: 'app-workspace',
